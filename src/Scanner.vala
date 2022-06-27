@@ -23,8 +23,7 @@
  namespace Abacus.Core {
     public errordomain SCANNER_ERROR {
         UNKNOWN_TOKEN,
-        ALPHA_INVALID,
-        MISMATCHED_PARENTHESES
+        ALPHA_INVALID
     }
 
     public class Scanner : Object {
@@ -55,27 +54,18 @@
 
             Token? last_token = null;
             List<Token> token_list = new List<Token> ();
-            int parentheses_balance_counter = 0;
             while (pos < uc.length) {
                 Token t = next_token ();
                 /* Identifying multicharacter tokens via Evaluation class. */
                 if (t.token_type == TokenType.ALPHA) {
                     if (Evaluation.is_operator (t)) {
                         t.token_type = TokenType.OPERATOR;
-                    } else if (Evaluation.is_function (t)) {
-                        t.token_type = TokenType.FUNCTION;
-                    } else if (Evaluation.is_constant (t)) {
-                        t.token_type = TokenType.CONSTANT;
                     } else {
                         throw new SCANNER_ERROR.ALPHA_INVALID (_("'%s' is invalid."), t.content);
                     }
                 } else if (t.token_type == TokenType.OPERATOR && (t.content in "-−")) {
                     /* Define last_tokens, where a next minus is a number, not an operator */
-                    if (last_token == null || (
-                        (last_token.token_type == TokenType.OPERATOR && last_token.content != "%") ||
-                        (last_token.token_type == TokenType.FUNCTION) ||
-                        (last_token.token_type == TokenType.P_LEFT)
-                    )) {
+                    if (last_token == null || (last_token.token_type == TokenType.OPERATOR && last_token.content != "%")) {
                         // A minus sign not following a number can be merged with a following number;
                         next_number_negative = true;
                         continue;
@@ -92,30 +82,12 @@
                     next_number_negative = false;
                 }
 
-                /*
-                * Checking if last token was a number or parenthesis right
-                * and token now is a function, constant or parenthesis (left)
-                */
-                if (last_token != null &&
-                   (last_token.token_type == TokenType.NUMBER || last_token.token_type == TokenType.P_RIGHT) &&
-                   (t.token_type == TokenType.FUNCTION || t.token_type == TokenType.CONSTANT ||
-                    t.token_type == TokenType.P_LEFT || t.token_type == TokenType.NUMBER)
-                ) {
+                if (last_token != null && last_token.token_type == TokenType.NUMBER && t.token_type == TokenType.NUMBER) {
                     token_list.append (new Token ("*", TokenType.OPERATOR));
-                }
-
-                if (t.token_type == TokenType.P_LEFT) {
-                    parentheses_balance_counter -= 1;
-                } else if (t.token_type == TokenType.P_RIGHT) {
-                    parentheses_balance_counter += 1;
                 }
 
                 token_list.append (t);
                 last_token = t;
-            }
-
-            if (parentheses_balance_counter != 0) {
-                throw new SCANNER_ERROR.MISMATCHED_PARENTHESES (_("Mismatched parenthesis."));
             }
 
             return token_list;
@@ -147,23 +119,11 @@
                         uc[pos] == '÷' || uc[pos] == '×' || uc[pos] == '−') {
                 pos++;
                 type = TokenType.OPERATOR;
-            } else if (uc[pos] == '√') {
-                pos++;
-                type = TokenType.FUNCTION;
-            } else if (uc[pos] == 'π') {
-                pos++;
-                type = TokenType.CONSTANT;
             } else if (uc[pos].isalpha ()) {
                 while (uc[pos].isalpha () && pos < uc.length) {
                     pos++;
                 }
                 type = TokenType.ALPHA;
-            } else if (uc[pos] == '(') {
-                pos++;
-                type = TokenType.P_LEFT;
-            } else if (uc[pos] == ')') {
-                pos++;
-                type = TokenType.P_RIGHT;
             } else if (uc[pos] == '\0') {
                 type = TokenType.EOF;
             } else {

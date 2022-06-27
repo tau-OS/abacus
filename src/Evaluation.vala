@@ -24,17 +24,12 @@
 
  namespace Abacus.Core {
      private errordomain EVAL_ERROR {
-         NO_FUNCTION,
-         NO_OPERATOR,
-         NO_CONSTANT
+         NO_OPERATOR
      }
  
      private errordomain SHUNTING_ERROR {
          DUMMY,
          NO_OPERATOR,
-         NO_FUNCTION,
-         NO_CONSTANT,
-         MISMATCHED_P,
          UNKNOWN_TOKEN,
          STACK_EMPTY
      }
@@ -62,16 +57,7 @@
              Operator () { symbol = "÷", inputs = 2, prec = 2, fixity = "LEFT", eval = (a, b) => a / b },
              Operator () { symbol = "%", inputs = 1, prec = 5, fixity = "LEFT", eval = (a, b) => b / 100.0 }
          };
- 
-         private struct Function { string symbol; int inputs; Eval eval;}
-         static Function[] functions = {
-         };
- 
-         private struct Constant { string symbol; Eval eval; }
-         static Constant[] constants = {
-         };
- 
- 
+
          public Scanner scanner = new Scanner ();
  
          public Evaluation () { }
@@ -106,19 +92,9 @@
                      case TokenType.NUMBER:
                          output.append (t);
                          break;
-                     case TokenType.CONSTANT:
-                         output.append (t);
-                         break;
-                     case TokenType.FUNCTION:
-                         op_stack.push_tail (t);
-                         break;
                      case TokenType.SEPARATOR:
-                         while (!op_stack.is_empty () && op_stack.peek_tail ().token_type != TokenType.P_LEFT) {
+                         while (!op_stack.is_empty ()) {
                              output.append (op_stack.pop_tail ());
-                         }
- 
-                         if (op_stack.peek_tail ().token_type != TokenType.P_LEFT) {
-                             throw new SHUNTING_ERROR.MISMATCHED_P ("Content of parentheses is mismatched.");
                          }
                          break;
                      case TokenType.OPERATOR:
@@ -145,40 +121,13 @@
                          }
                          op_stack.push_tail (t);
                          break;
-                     case TokenType.P_LEFT:
-                         op_stack.push_tail (t);
-                         break;
-                     case TokenType.P_RIGHT:
-                         while (!op_stack.is_empty ()) {
-                             if (op_stack.peek_tail ().token_type != TokenType.P_LEFT) {
-                                 output.append (op_stack.pop_tail ());
-                             } else {
-                                 break;
-                             }
-                         }
- 
-                         if (!op_stack.is_empty () && op_stack.peek_tail ().token_type == TokenType.P_LEFT) {
-                             op_stack.pop_tail ();
-                         }
- 
-                         if (!op_stack.is_empty () && op_stack.peek_tail ().token_type == TokenType.FUNCTION) {
-                             output.append (op_stack.pop_tail ());
-                         }
- 
-                         break;
                      default:
                          throw new SHUNTING_ERROR.UNKNOWN_TOKEN ("'%s' is unknown.", t.content);
                  }
              }
  
              while (!op_stack.is_empty ()) {
-                 if (op_stack.peek_tail ().token_type == TokenType.P_LEFT ||
-                     op_stack.peek_tail ().token_type == TokenType.P_RIGHT
-                 ) {
-                     throw new SHUNTING_ERROR.MISMATCHED_P ("Mismatched parenthesis.");
-                 } else {
-                     output.append (op_stack.pop_tail ());
-                 }
+                 output.append (op_stack.pop_tail ());
              }
  
              return output;
@@ -190,14 +139,7 @@
              foreach (Token t in token_list) {
                  if (t.token_type == TokenType.NUMBER) {
                      stack.push_tail (t);
-                 } else if (t.token_type == TokenType.CONSTANT) {
-                     try {
-                         Constant c = get_constant (t);
-                         stack.push_tail (new Token (c.eval ().to_string (), TokenType.NUMBER));
-                     } catch (SHUNTING_ERROR e) {
-                         throw new EVAL_ERROR.NO_CONSTANT ("");
-                     }
-                 } else if (t.token_type == TokenType.OPERATOR) {
+                 }else if (t.token_type == TokenType.OPERATOR) {
                      try {
                          Operator o = get_operator (t);
                          Token t1 = stack.pop_tail ();
@@ -209,19 +151,6 @@
                          stack.push_tail (compute (o.eval, t2, t1));
                      } catch (SHUNTING_ERROR e) {
                          throw new EVAL_ERROR.NO_OPERATOR ("");
-                     }
-                 } else if (t.token_type == TokenType.FUNCTION) {
-                     try {
-                         Function f = get_function (t);
-                         Token t1 = stack.pop_tail ();
-                         Token t2 = new Token ("0", TokenType.NUMBER);
- 
-                         if (!stack.is_empty () && f.inputs == 2) {
-                             t2 = stack.pop_tail ();
-                         }
-                         stack.push_tail (compute (f.eval, t1, t2));
-                     } catch (SHUNTING_ERROR e) {
-                         throw new EVAL_ERROR.NO_FUNCTION ("");
                      }
                  }
              }
@@ -238,24 +167,6 @@
              return false;
          }
  
-         public static bool is_function (Token t) {
-             foreach (Function f in functions) {
-                 if (t.content == f.symbol) {
-                     return true;
-                 }
-             }
-             return false;
-         }
- 
-         public static bool is_constant (Token t) {
-             foreach (Constant c in constants) {
-                 if (t.content == c.symbol) {
-                     return true;
-                 }
-             }
-             return false;
-         }
- 
          private Operator get_operator (Token t) throws SHUNTING_ERROR {
              foreach (Operator o in operators) {
                  if (t.content == o.symbol) {
@@ -263,24 +174,6 @@
                  }
              }
              throw new SHUNTING_ERROR.NO_OPERATOR ("");
-         }
- 
-         private Function get_function (Token t) throws SHUNTING_ERROR {
-             foreach (Function f in functions) {
-                 if (t.content == f.symbol) {
-                     return f;
-                 }
-             }
-             throw new SHUNTING_ERROR.NO_FUNCTION ("");
-         }
- 
-         private Constant get_constant (Token t) throws SHUNTING_ERROR {
-             foreach (Constant c in constants) {
-                 if (t.content == c.symbol) {
-                     return c;
-                 }
-             }
-             throw new SHUNTING_ERROR.NO_CONSTANT ("");
          }
  
          private Token compute (Eval eval, Token t1, Token t2) throws EVAL_ERROR {

@@ -39,6 +39,7 @@
                 <style>
                   <class name="calc-entry" />
                   <class name="display" />
+                  <class name="numeric" />
                 </style>
                 <layout>
                   <property name="column">0</property>
@@ -106,6 +107,7 @@
                     <property name="action-target">"7"</property>
                     <style>
                       <class name="calc-button" />
+                      <class name="numeric" />
                     </style>
                   </object>
                 </child>
@@ -116,6 +118,7 @@
                     <property name="action-target">"8"</property>
                     <style>
                       <class name="calc-button" />
+                      <class name="numeric" />
                     </style>
                   </object>
                 </child>
@@ -126,6 +129,7 @@
                     <property name="action-target">"9"</property>
                     <style>
                       <class name="calc-button" />
+                      <class name="numeric" />
                     </style>
                   </object>
                 </child>
@@ -156,6 +160,7 @@
                     <property name="action-target">"4"</property>
                     <style>
                       <class name="calc-button" />
+                      <class name="numeric" />
                     </style>
                   </object>
                 </child>
@@ -166,6 +171,7 @@
                     <property name="action-target">"5"</property>
                     <style>
                       <class name="calc-button" />
+                      <class name="numeric" />
                     </style>
                   </object>
                 </child>
@@ -176,6 +182,7 @@
                     <property name="action-target">"6"</property>
                     <style>
                       <class name="calc-button" />
+                      <class name="numeric" />
                     </style>
                   </object>
                 </child>
@@ -206,6 +213,7 @@
                     <property name="action-target">"1"</property>
                     <style>
                       <class name="calc-button" />
+                      <class name="numeric" />
                     </style>
                   </object>
                 </child>
@@ -216,6 +224,7 @@
                     <property name="action-target">"2"</property>
                     <style>
                       <class name="calc-button" />
+                      <class name="numeric" />
                     </style>
                   </object>
                 </child>
@@ -226,6 +235,7 @@
                     <property name="action-target">"3"</property>
                     <style>
                       <class name="calc-button" />
+                      <class name="numeric" />
                     </style>
                   </object>
                 </child>
@@ -256,6 +266,7 @@
                     <property name="action-target">"0"</property>
                     <style>
                       <class name="calc-button" />
+                      <class name="numeric" />
                     </style>
                   </object>
                 </child>

@@ -25,11 +25,7 @@
         NULL_NUMBER, //A number with a decimal point but no leading digits e.g. .5
         NUMBER,
         OPERATOR,
-        FUNCTION,
         SEPARATOR,
-        CONSTANT,
-        P_LEFT,
-        P_RIGHT,
         ALPHA,
         EOF;
     }
