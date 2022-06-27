@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <menu id="main_menu">
+    <item>
+      <attribute name="label" translatable="true">Settings…</attribute>
+      <attribute name="action">win.action-prefs</attribute>
+    </item>
+    <item>
+      <attribute name="label" translatable="true">About Abacus</attribute>
+      <attribute name="action">win.action-about</attribute>
+    </item>
+  </menu>
+  <template class="AbacusMainWindow" parent="HeApplicationWindow">
+    <property name="default-width">360</property>
+    <property name="default-height">430</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="HeAppBar">
+            <property name="show-back">0</property>
+            <property name="flat">1</property>
+            <child type="end">
+              <object class="GtkMenuButton" id="menu">
+                <property name="icon-name">open-menu</property>
+                <property name="menu-model">main_menu</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkGrid">
+            <property name="column-homogeneous">true</property>
+            <property name="row-homogeneous">true</property>
+            <property name="vexpand">1</property>
+            <child>
+              <object class="GtkEntry" id="entry">
+                <style>
+                  <class name="calc-entry" />
+                  <class name="display" />
+                </style>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="homogeneous">true</property>
+                <child>
+                  <object class="HeFillButton" id="ac">
+                    <property name="label">C</property>
+                    <property name="action-name">win.action-clear</property>
+                    <style>
+                      <class name="calc-button" />
+                      <class name="meson-red" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="dot">
+                    <property name="label">.</property>
+                    <style>
+                      <class name="calc-button" />
+                      <class name="operator" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="perc">
+                    <property name="label">%</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"%"</property>
+                    <style>
+                      <class name="calc-button" />
+                      <class name="operator" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="div">
+                    <property name="label">÷</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"÷"</property>
+                    <style>
+                      <class name="calc-button" />
+                      <class name="operator" />
+                    </style>
+                  </object>
+                </child>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="homogeneous">true</property>
+                <child>
+                  <object class="GtkButton" id="seven">
+                    <property name="label">7</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"7"</property>
+                    <style>
+                      <class name="calc-button" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="eight">
+                    <property name="label">8</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"8"</property>
+                    <style>
+                      <class name="calc-button" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="nine">
+                    <property name="label">9</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"9"</property>
+                    <style>
+                      <class name="calc-button" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="mult">
+                    <property name="label">×</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"×"</property>
+                    <style>
+                      <class name="calc-button" />
+                      <class name="operator" />
+                    </style>
+                  </object>
+                </child>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="homogeneous">true</property>
+                <child>
+                  <object class="GtkButton" id="four">
+                    <property name="label">4</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"4"</property>
+                    <style>
+                      <class name="calc-button" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="five">
+                    <property name="label">5</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"5"</property>
+                    <style>
+                      <class name="calc-button" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="six">
+                    <property name="label">6</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"6"</property>
+                    <style>
+                      <class name="calc-button" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="min">
+                    <property name="label">-</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"-"</property>
+                    <style>
+                      <class name="calc-button" />
+                      <class name="operator" />
+                    </style>
+                  </object>
+                </child>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="homogeneous">true</property>
+                <child>
+                  <object class="GtkButton" id="one">
+                    <property name="label">1</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"1"</property>
+                    <style>
+                      <class name="calc-button" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="two">
+                    <property name="label">2</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"2"</property>
+                    <style>
+                      <class name="calc-button" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="three">
+                    <property name="label">3</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"3"</property>
+                    <style>
+                      <class name="calc-button" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="plus">
+                    <property name="label">+</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"+"</property>
+                    <style>
+                      <class name="calc-button" />
+                      <class name="operator" />
+                    </style>
+                  </object>
+                </child>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">4</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="homogeneous">true</property>
+                <child>
+                  <object class="GtkButton" id="zero">
+                    <property name="label">0</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"0"</property>
+                    <style>
+                      <class name="calc-button" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="HeFillButton" id="eq">
+                    <property name="label">=</property>
+                    <style>
+                      <class name="calc-button" />
+                      <class name="tau-purple" />
+                    </style>
+                  </object>
+                </child>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">5</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

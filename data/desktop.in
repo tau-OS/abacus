@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Abacus
+Comment=Calculate stuff
+GenericName=Calculator
+Exec=co.tauos.Abacus
+Icon=co.tauos.Abacus
+Terminal=false
+Categories=GNOME;GTK;Utilities;
+Keywords=calculator;
+X-GNOME-Gettext-Domain=co.tauos.Abacus
