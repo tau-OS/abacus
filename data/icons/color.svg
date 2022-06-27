@@ -5,8 +5,25 @@
    width="128px"
    version="1.1"
    id="svg37"
+   sodipodi:docname="color.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview22"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="5.125"
+     inkscape:cx="63.902439"
+     inkscape:cy="64"
+     inkscape:current-layer="svg37" />
   <defs
      id="defs41" />
   <linearGradient
@@ -82,12 +99,12 @@
      d="m 72 28 h 24 c 3.3125 0 6 2.6875 6 6 v 58 c 0 3.3125 -2.6875 6 -6 6 h -24 c -3.3125 0 -6 -2.6875 -6 -6 v -58 c 0 -3.3125 2.6875 -6 6 -6 z m 0 0"
      fill="#1a5fb4"
      id="path27"
-     style="fill:#0674e6" />
+     style="fill:#723ea4" />
   <path
      d="m 72 24 h 24 c 3.3125 0 6 2.6875 6 6 v 58 c 0 3.3125 -2.6875 6 -6 6 h -24 c -3.3125 0 -6 -2.6875 -6 -6 v -58 c 0 -3.3125 2.6875 -6 6 -6 z m 0 0"
      fill="#3584e4"
      id="path29"
-     style="fill:#268ef9" />
+     style="fill:#8c56bf" />
   <path
      d="m 50 33.671875 l -6.332031 6.34375 l 6.332031 6.3125 l -1.648438 1.671875 l -6.359374 -6.34375 l -6.359376 6.34375 l -1.632812 -1.671875 l 6.316406 -6.3125 l -6.316406 -6.34375 l 1.632812 -1.671875 l 6.359376 6.34375 l 6.359374 -6.34375 z m 0 0"
      id="path31"
