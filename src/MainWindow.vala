@@ -51,9 +51,9 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 			application: app,
 			resizable: false
 		);
-		
-		this.show ();
+    }
 
+    construct {
 		add_action_entries (ACTION_ENTRIES, this);
 		eval = new Core.Evaluation ();
 		decimal_places = 2;
@@ -61,18 +61,16 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         var application_instance = (Gtk.Application) GLib.Application.get_default ();
         application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_CLEAR, {"Escape"});
 
-		var provider = new Gtk.CssProvider ();
-		provider.load_from_resource ("/co/tauos/Abacus/style.css");
-		Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
 		entry.grab_focus ();
-
         entry.activate.connect (eq_clicked);
         entry.get_delegate ().insert_text.connect (replace_text);
 
 		dot.action_name = ACTION_PREFIX + ACTION_INSERT;
 		dot.action_target = new Variant.string (Posix.nl_langinfo (Posix.NLItem.RADIXCHAR));
+
 		eq.clicked.connect (() => {eq_clicked ();});
+
+        this.show ();
 	}
 
     private void action_insert (SimpleAction action, Variant? variant) {

@@ -13,8 +13,8 @@ namespace Abacus {
 		}
 		protected override void startup () {
 			resource_base_path = "/co/tauos/Abacus";
-			base.startup ();
 			add_action_entries (app_entries, this);
+			base.startup ();
 			new MainWindow (this);
 		}
 		protected override void activate () {
