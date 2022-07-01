@@ -63,6 +63,8 @@
                 <child>
                   <object class="GtkButton" id="dot">
                     <property name="label">.</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"."</property>
                     <style>
                       <class name="calc-button" />
                       <class name="operator" />
@@ -84,7 +86,7 @@
                   <object class="GtkButton" id="div">
                     <property name="label">÷</property>
                     <property name="action-name">win.action-insert</property>
-                    <property name="action-target">"÷"</property>
+                    <property name="action-target">"/"</property>
                     <style>
                       <class name="calc-button" />
                       <class name="operator" />
@@ -137,7 +139,7 @@
                   <object class="GtkButton" id="mult">
                     <property name="label">×</property>
                     <property name="action-name">win.action-insert</property>
-                    <property name="action-target">"×"</property>
+                    <property name="action-target">"*"</property>
                     <style>
                       <class name="calc-button" />
                       <class name="operator" />

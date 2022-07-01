@@ -1,9 +1,10 @@
 {
-    "app-id" : "co.tauos.Abacus",
+    "app-id" : "co.tauos.Abacus.Devel",
     "runtime" : "co.tauos.Platform",
     "sdk" : "co.tauos.Sdk",
-    "runtime-version" : "stable",
+    "runtime-version" : "daily",
     "command" : "co.tauos.Abacus",
+    "desktop-file-name-suffix" : " (Development)",
     "finish-args" : [
         "--device=dri",
         "--share=ipc",
@@ -26,6 +27,9 @@
             "name" : "abacus",
             "builddir" : true,
             "buildsystem" : "meson",
+            "config-opts" : [
+                "-Ddevelopment=true"
+            ],
             "sources" : [
                 {
                     "type" : "dir",

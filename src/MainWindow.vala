@@ -65,9 +65,6 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         entry.activate.connect (eq_clicked);
         entry.get_delegate ().insert_text.connect (replace_text);
 
-		dot.action_name = ACTION_PREFIX + ACTION_INSERT;
-		dot.action_target = new Variant.string (Posix.nl_langinfo (Posix.NLItem.RADIXCHAR));
-
 		eq.clicked.connect (() => {eq_clicked ();});
 
         this.show ();
@@ -123,7 +120,7 @@ public class Abacus.MainWindow : He.ApplicationWindow {
     private void action_about () {
         var about = new He.AboutWindow (
             this,
-            "Abacus",
+            "Abacus" + Config.NAME_SUFFIX,
             "co.tauos.Abacus",
             Config.VERSION,
             "co.tauos.Abacus",
