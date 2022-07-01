@@ -123,7 +123,7 @@ public class Abacus.MainWindow : He.ApplicationWindow {
             "Abacus" + Config.NAME_SUFFIX,
             "co.tauos.Abacus",
             Config.VERSION,
-            "co.tauos.Abacus",
+            Config.APP_ID,
             "https:/fyralabs.com",
             "https:/fyralabs.com",
             "https:/fyralabs.com",
