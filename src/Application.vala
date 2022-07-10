@@ -12,6 +12,9 @@ namespace Abacus {
 			return app.run (args);
 		}
 		protected override void startup () {
+			Gdk.RGBA accent_color = { 0 };
+            accent_color.parse("#8C56BF");
+            default_accent_color = He.Color.from_gdk_rgba(accent_color);
 			resource_base_path = "/co/tauos/Abacus";
 			add_action_entries (app_entries, this);
 			base.startup ();
