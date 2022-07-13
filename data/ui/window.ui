@@ -56,7 +56,7 @@
                     <property name="action-name">win.action-clear</property>
                     <style>
                       <class name="calc-button" />
-                      <class name="destructive-action" />
+                      <class name="meson-red" />
                     </style>
                   </object>
                 </child>
