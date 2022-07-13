@@ -56,7 +56,7 @@
                     <property name="action-name">win.action-clear</property>
                     <style>
                       <class name="calc-button" />
-                      <class name="meson-red" />
+                      <class name="destructive-action" />
                     </style>
                   </object>
                 </child>
@@ -277,7 +277,7 @@
                     <property name="label">=</property>
                     <style>
                       <class name="calc-button" />
-                      <class name="tau-purple" />
+                      <class name="suggested-action" />
                     </style>
                   </object>
                 </child>
