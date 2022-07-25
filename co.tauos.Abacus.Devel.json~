@@ -1,8 +1,8 @@
 {
     "app-id" : "co.tauos.Abacus.Devel",
-    "runtime" : "co.tauos.Sdk",
+    "runtime" : "co.tauos.Platform",
     "sdk" : "co.tauos.Sdk",
-    "runtime-version" : "stable",
+    "runtime-version" : "daily",
     "command" : "co.tauos.Abacus",
     "desktop-file-name-suffix" : " (Development)",
     "finish-args" : [
@@ -37,8 +37,5 @@
                 }
             ]
         }
-    ],
-    "build-options" : {
-        "env" : {        }
-    }
+    ]
 }

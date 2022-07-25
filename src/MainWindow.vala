@@ -67,6 +67,12 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
 		eq.clicked.connect (() => {eq_clicked ();});
 
+		unichar[] allowed_characters_arr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*', ',', '÷', '×'};
+
+		foreach (var chr in allowed_characters_arr) {
+		    this.allowed_characters.add(chr);
+		}
+
         this.show ();
 	}
 
@@ -140,7 +146,23 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         // TODO: Preferences window
     }
 
+    private Gee.TreeSet<unichar>allowed_characters = new Gee.TreeSet<unichar>();
+
     private void replace_text (string new_text, int new_text_length, ref int position) {
+        if (new_text == "=") {
+            Signal.stop_emission_by_name ((void*) entry.get_delegate (), "insert-text");
+            eq_clicked();
+            return;
+        }
+
+        for (int i = 0; i < new_text.char_count(); i++) {
+            var chr = new_text.get_char(i);
+            if (!this.allowed_characters.contains(chr)) {
+               Signal.stop_emission_by_name ((void*) entry.get_delegate (), "insert-text");
+               return;
+            }
+        }
+
         var replacement_text = "";
 
         switch (new_text) {
