@@ -3,10 +3,6 @@
   <requires lib="gtk" version="4.0" />
   <menu id="main_menu">
     <item>
-      <attribute name="label" translatable="true">Settings…</attribute>
-      <attribute name="action">win.action-prefs</attribute>
-    </item>
-    <item>
       <attribute name="label" translatable="true">About Abacus</attribute>
       <attribute name="action">win.action-about</attribute>
     </item>
