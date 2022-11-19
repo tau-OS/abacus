@@ -8,7 +8,7 @@
     </item>
   </menu>
   <template class="AbacusMainWindow" parent="HeApplicationWindow">
-    <property name="default-width">360</property>
+    <property name="default-width">300</property>
     <property name="default-height">430</property>
     <child>
       <object class="GtkBox">
@@ -45,7 +45,7 @@
             </child>
             <child>
               <object class="GtkBox">
-                <property name="homogeneous">true</property>
+                <property name="homogeneous">1</property>
                 <child>
                   <object class="HeFillButton" id="ac">
                     <property name="label">C</property>
@@ -57,10 +57,10 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkButton" id="dot">
-                    <property name="label">.</property>
+                  <object class="GtkButton" id="perc">
+                    <property name="label">%</property>
                     <property name="action-name">win.action-insert</property>
-                    <property name="action-target">"."</property>
+                    <property name="action-target">"%"</property>
                     <style>
                       <class name="calc-button" />
                       <class name="operator" />
@@ -68,10 +68,9 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkButton" id="perc">
-                    <property name="label">%</property>
-                    <property name="action-name">win.action-insert</property>
-                    <property name="action-target">"%"</property>
+                  <object class="HeFillButton" id="clr">
+                    <property name="icon">edit-clear-symbolic</property>
+                    <property name="action-name">win.action-delete</property>
                     <style>
                       <class name="calc-button" />
                       <class name="operator" />
@@ -97,7 +96,7 @@
             </child>
             <child>
               <object class="GtkBox">
-                <property name="homogeneous">true</property>
+                <property name="homogeneous">1</property>
                 <child>
                   <object class="GtkButton" id="seven">
                     <property name="label">7</property>
@@ -150,7 +149,7 @@
             </child>
             <child>
               <object class="GtkBox">
-                <property name="homogeneous">true</property>
+                <property name="homogeneous">1</property>
                 <child>
                   <object class="GtkButton" id="four">
                     <property name="label">4</property>
@@ -203,7 +202,7 @@
             </child>
             <child>
               <object class="GtkBox">
-                <property name="homogeneous">true</property>
+                <property name="homogeneous">1</property>
                 <child>
                   <object class="GtkButton" id="one">
                     <property name="label">1</property>
@@ -256,7 +255,18 @@
             </child>
             <child>
               <object class="GtkBox">
-                <property name="homogeneous">true</property>
+                <property name="homogeneous">1</property>
+                <child>
+                  <object class="GtkButton" id="dzero">
+                    <property name="label">00</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"00"</property>
+                    <style>
+                      <class name="calc-button" />
+                      <class name="numeric" />
+                    </style>
+                  </object>
+                </child>
                 <child>
                   <object class="GtkButton" id="zero">
                     <property name="label">0</property>
@@ -265,6 +275,17 @@
                     <style>
                       <class name="calc-button" />
                       <class name="numeric" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="dot">
+                    <property name="label">.</property>
+                    <property name="action-name">win.action-insert</property>
+                    <property name="action-target">"."</property>
+                    <style>
+                      <class name="calc-button" />
+                      <class name="operator" />
                     </style>
                   </object>
                 </child>

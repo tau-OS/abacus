@@ -23,8 +23,6 @@
 [GtkTemplate (ui = "/co/tauos/Abacus/window.ui")]
 public class Abacus.MainWindow : He.ApplicationWindow {
 	[GtkChild]
-	private unowned Gtk.Button dot;
-	[GtkChild]
 	private unowned Gtk.Button eq;
 	[GtkChild]
 	private unowned Gtk.Entry entry;
@@ -35,6 +33,7 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
 	public const string ACTION_PREFIX = "win.";
 	public const string ACTION_CLEAR = "action-clear";
+    public const string ACTION_DELETE = "action-delete";
     public const string ACTION_INSERT = "action-insert";
     public const string ACTION_ABOUT = "action-about";
     public const string ACTION_PREFS = "action-prefs";
@@ -42,6 +41,7 @@ public class Abacus.MainWindow : He.ApplicationWindow {
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_INSERT, action_insert, "s"},
 		{ ACTION_CLEAR, action_clear },
+        { ACTION_DELETE, action_delete },
         { ACTION_ABOUT, action_about},
 		{ ACTION_PREFS, action_prefs }
     };
@@ -112,6 +112,31 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
         entry.grab_focus ();
         entry.set_position (position);
+    }
+
+    private void action_delete () {
+        position = entry.get_position ();
+        if (entry.get_text ().length > 0) {
+            string new_text = "";
+            int index = 0;
+            unowned unichar c;
+            List<unichar> news = new List<unichar> ();
+
+            for (int i = 0; entry.get_text ().get_next_char (ref index, out c); i++) {
+                if (i + 1 != position) {
+                    news.append (c);
+                }
+            }
+
+            foreach (unichar u in news) {
+                new_text += u.to_string ();
+            }
+
+            entry.set_text (new_text);
+        }
+
+        entry.grab_focus ();
+        entry.set_position (position - 1);
     }
 
     private void action_clear () {
