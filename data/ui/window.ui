@@ -70,7 +70,7 @@
                         <property name="action-name">win.action-clear</property>
                         <style>
                           <class name="calc-button" />
-                          <class name="meson-red" />
+                          <class name="operator" />
                         </style>
                       </object>
                     </child>
@@ -304,7 +304,7 @@
                         <property name="action-target">"."</property>
                         <style>
                           <class name="calc-button" />
-                          <class name="operator" />
+                          <class name="numeric" />
                         </style>
                       </object>
                     </child>
