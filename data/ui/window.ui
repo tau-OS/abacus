@@ -30,9 +30,9 @@
             <child>
               <object class="GtkLabel" id="result">
                 <property name="margin-start">18</property>
-                <property name="margin-end">18</property>
+                <property name="margin-end">22</property>
                 <property name="margin-bottom">6</property>
-                <property name="margin-top">55</property>
+                <property name="margin-top">60</property>
                 <property name="xalign">1</property>
                 <property name="sensitive">0</property>
                 <style>
@@ -57,13 +57,13 @@
             </child>
             <child>
               <object class="GtkGrid">
-                <property name="row-spacing">18</property>
+                <property name="row-spacing">12</property>
                 <property name="margin-start">18</property>
                 <property name="margin-end">18</property>
                 <property name="margin-bottom">18</property>
                 <child>
                   <object class="GtkBox">
-                    <property name="spacing">18</property>
+                    <property name="spacing">12</property>
                     <child>
                       <object class="HeFillButton" id="ac">
                         <property name="label">C</property>
@@ -88,7 +88,7 @@
                     <child>
                       <object class="HeFillButton" id="clr">
                         <property name="icon">edit-clear-symbolic</property>
-                        <property name="hexpand">1</property>
+                        <property name="width-request">65</property>
                         <property name="action-name">win.action-delete</property>
                         <style>
                           <class name="calc-button" />
@@ -115,7 +115,7 @@
                 </child>
                 <child>
                   <object class="GtkBox">
-                    <property name="spacing">18</property>
+                    <property name="spacing">12</property>
                     <child>
                       <object class="GtkButton" id="seven">
                         <property name="label">7</property>
@@ -168,7 +168,7 @@
                 </child>
                 <child>
                   <object class="GtkBox">
-                    <property name="spacing">18</property>
+                    <property name="spacing">12</property>
                     <child>
                       <object class="GtkButton" id="four">
                         <property name="label">4</property>
@@ -221,7 +221,7 @@
                 </child>
                 <child>
                   <object class="GtkBox">
-                    <property name="spacing">18</property>
+                    <property name="spacing">12</property>
                     <child>
                       <object class="GtkButton" id="one">
                         <property name="label">1</property>
@@ -274,7 +274,7 @@
                 </child>
                 <child>
                   <object class="GtkBox">
-                    <property name="spacing">18</property>
+                    <property name="spacing">12</property>
                     <child>
                       <object class="GtkButton" id="dzero">
                         <property name="label">00</property>
