@@ -8,8 +8,9 @@
     </item>
   </menu>
   <template class="AbacusMainWindow" parent="HeApplicationWindow">
-    <property name="default-width">300</property>
-    <property name="default-height">430</property>
+    <property name="default-width">284</property>
+    <property name="default-height">500</property>
+    <property name="resizable">0</property>
     <child>
       <object class="GtkWindowHandle">
         <child>
@@ -31,8 +32,7 @@
               <object class="GtkLabel" id="result">
                 <property name="margin-start">18</property>
                 <property name="margin-end">18</property>
-                <property name="margin-bottom">6</property>
-                <property name="margin-top">45</property>
+                <property name="margin-top">46</property>
                 <property name="xalign">0.990</property>
                 <property name="sensitive">0</property>
                 <style>
@@ -46,7 +46,7 @@
               <object class="GtkEntry" id="entry">
                 <property name="margin-start">8</property>
                 <property name="margin-end">8</property>
-                <property name="margin-bottom">12</property>
+                <property name="margin-bottom">5</property>
                 <property name="xalign">1</property>
                 <style>
                   <class name="calc-entry" />
@@ -88,7 +88,6 @@
                     <child>
                       <object class="HeFillButton" id="clr">
                         <property name="icon">edit-clear-symbolic</property>
-                        <property name="width-request">65</property>
                         <property name="action-name">win.action-delete</property>
                         <style>
                           <class name="calc-button" />

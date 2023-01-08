@@ -50,8 +50,7 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
 	public class MainWindow (He.Application app) {
 		Object (
-			application: app,
-			resizable: false
+			application: app
 		);
     }
 

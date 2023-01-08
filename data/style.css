@@ -1,27 +1,28 @@
 .calc-button {
-  background: mix(@accent_bg_color, alpha(@view_fg_color, 0.05), 0.92);
+  background: alpha(@view_fg_color, 0.1);
   color: @view_fg_color;
   border-radius: 999px;
   font-size: 18px;
-  font-weight: 400;
-  min-height: 55px;
-  min-width: 32px;
+  font-weight: 300;
+  min-height: 57px;
+  min-width: 57px;
+  padding: 4px;
 }
 .calc-button:hover {
-  background: mix(@accent_bg_color, alpha(@view_fg_color, 0.1), 0.92);
+  background: alpha(@view_fg_color, 0.2);
 }
 .calc-button:active {
-  background: mix(@accent_bg_color, alpha(@view_fg_color, 0.15), 0.92);
+  background: alpha(@view_fg_color, 0.3);
 }
 .operator {
-  background: mix(@accent_bg_color, alpha(@view_fg_color, 0.2), 0.92);
+  background: alpha(@view_fg_color, 0.2);
   color: @view_fg_color;
 }
 .operator:hover {
-  background: mix(@accent_bg_color, alpha(@view_fg_color, 0.3), 0.92);
+  background: alpha(@view_fg_color, 0.3);
 }
 .operator:active {
-  background: mix(@accent_bg_color, alpha(@view_fg_color, 0.4), 0.92);
+  background: alpha(@view_fg_color, 0.4);
 }
 .calc-entry {
   border-radius: 0px;
