@@ -26,7 +26,7 @@ jobs:
     - uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v4
       name: "Build"
       with:
-        bundle: modi.flatpak
+        bundle: abacus.flatpak
         manifest-path: co.tauos.Abacus.json
         cache-key: flatpak-builder-${{ github.sha }}
         repository-name: catalogue
