@@ -26,7 +26,7 @@
 }
 .calc-entry {
   border-radius: 0px;
-  background: transparent;
+  background: @window_bg_color;
   background-color: transparent;
   padding: 8px 12px;
   box-shadow: none;
