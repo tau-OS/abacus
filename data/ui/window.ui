@@ -40,7 +40,6 @@
               <object class="GtkEntry" id="entry">
                 <property name="margin-start">8</property>
                 <property name="margin-end">8</property>
-                <property name="margin-bottom">12</property>
                 <property name="xalign">1</property>
                 <property name="width-chars">10</property>
                 <style>
@@ -61,7 +60,7 @@
                     <property name="halign">end</property>
                     <property name="margin-start">18</property>
                     <property name="margin-end">18</property>
-                    <property name="margin-top">16</property>
+                    <property name="margin-top">12</property>
                     <style>
                       <class name="disclosure-button" />
                     </style>
