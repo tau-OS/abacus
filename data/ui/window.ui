@@ -20,6 +20,12 @@
               <object class="HeAppBar">
                 <property name="show-back">0</property>
                 <property name="flat">1</property>
+                <child>
+                  <object class="GtkMenuButton" id="menu">
+                    <property name="icon-name">open-menu</property>
+                    <property name="menu-model">main_menu</property>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
@@ -27,7 +33,7 @@
                 <property name="margin-top">60</property>
                 <property name="margin-start">18</property>
                 <property name="margin-end">18</property>
-                <property name="xalign">0.990</property>
+                <property name="xalign">0</property>
                 <property name="sensitive">0</property>
                 <style>
                   <class name="calc-label" />
@@ -40,33 +46,13 @@
               <object class="GtkEntry" id="entry">
                 <property name="margin-start">8</property>
                 <property name="margin-end">8</property>
-                <property name="xalign">1</property>
+                <property name="xalign">0</property>
                 <property name="width-chars">10</property>
                 <style>
                   <class name="calc-entry" />
                   <class name="display" />
                   <class name="numeric" />
                 </style>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <child>
-                  <object class="GtkMenuButton" id="menu">
-                    <property name="icon-name">open-menu</property>
-                    <property name="menu-model">main_menu</property>
-                    <property name="valign">center</property>
-                    <property name="hexpand">1</property>
-                    <property name="halign">end</property>
-                    <property name="margin-start">18</property>
-                    <property name="margin-end">18</property>
-                    <property name="margin-top">12</property>
-                    <property name="margin-bottom">6</property>
-                    <style>
-                      <class name="disclosure-button" />
-                    </style>
-                  </object>
-                </child>
               </object>
             </child>
             <child>
