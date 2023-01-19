@@ -19,7 +19,6 @@
             <child>
               <object class="HeAppBar">
                 <property name="show-back">0</property>
-                <property name="flat">1</property>
                 <child>
                   <object class="GtkMenuButton" id="menu">
                     <property name="icon-name">open-menu</property>
