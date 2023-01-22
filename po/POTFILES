@@ -1,3 +1,4 @@
+data/co.tauos.Abacus.desktop.in
 data/ui/window.ui
 src/Application.vala
 src/Evaluation.vala
