@@ -1,0 +1,6 @@
+data/ui/window.ui
+src/Application.vala
+src/Evaluation.vala
+src/MainWindow.vala
+src/Scanner.vala
+src/Token.vala
