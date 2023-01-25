@@ -8,34 +8,37 @@ msgstr ""
 "Project-Id-Version: co.tauos.Abacus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-21 22:56-0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-01-24 21:11+0000\n"
+"Last-Translator: Písek Pískovec <pisekpiskovec@gmail.com>\n"
+"Language-Team: Czech <https://weblate.fyralabs.com/projects/tauOS/abacus/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15.1\n"
 
 msgid "Abacus"
-msgstr ""
+msgstr "Počítadlo"
 
 msgid "Calculate stuff"
-msgstr ""
+msgstr "Spočítejte věci"
 
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkulátor"
 
 msgid "calculator;"
-msgstr ""
+msgstr "calculator;kalkulator;kalkulátor;kalkulacka;kalkulačka;"
 
 msgid "About Abacus"
-msgstr ""
+msgstr "O Počítadlu"
 
 #, c-format
 msgid "'%s' is invalid."
-msgstr ""
+msgstr "'%s' je neplatný."
 
 #. If no rule matches the character at pos, throw an error.
 #, c-format
 msgid "'%s' is unknown."
-msgstr ""
+msgstr "'%s' je neznámý."
