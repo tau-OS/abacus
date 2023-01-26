@@ -47,14 +47,3 @@
 .suggested-action:active {
   background: mix(@accent_bg_color, alpha(@view_fg_color, 0.4), 0.3);
 }
-
-.disclosure-button button {
-  border-radius: 999px;
-  background: alpha(@view_fg_color, 0.1);
-}
-.disclosure-button button:hover {
-  background: @accent_bg_color;
-}
-.disclosure-button button:checked {
-  background: @accent_bg_color;
-}
