@@ -23,7 +23,7 @@
 [GtkTemplate (ui = "/co/tauos/Abacus/window.ui")]
 public class Abacus.MainWindow : He.ApplicationWindow {
 	[GtkChild]
-	private unowned Gtk.Button eq;
+	private unowned He.OverlayButton eq;
 	[GtkChild]
 	private unowned Gtk.Entry entry;
     [GtkChild]

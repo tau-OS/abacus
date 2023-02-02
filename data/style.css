@@ -24,6 +24,16 @@
 .operator:active {
   background: alpha(@accent_bg_color, 0.4);
 }
+.destructive-operator {
+  background: alpha(@error_container_color, 0.2);
+  color: @view_fg_color;
+}
+.destructive-operator:hover {
+  background: alpha(@error_container_color, 0.3);
+}
+.destructive-operator:active {
+  background: alpha(@error_container_color, 0.4);
+}
 .calc-entry {
   border-radius: 0px;
   background: @window_bg_color;
