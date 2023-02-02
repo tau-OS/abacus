@@ -78,7 +78,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="perc">
+                          <object class="HeFillButton" id="perc">
                             <property name="label">%</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"%"</property>
@@ -99,7 +99,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="div">
+                          <object class="HeFillButton" id="div">
                             <property name="label">÷</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"/"</property>
@@ -119,7 +119,7 @@
                       <object class="GtkBox">
                         <property name="spacing">12</property>
                         <child>
-                          <object class="GtkButton" id="seven">
+                          <object class="HeFillButton" id="seven">
                             <property name="label">7</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"7"</property>
@@ -130,7 +130,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="eight">
+                          <object class="HeFillButton" id="eight">
                             <property name="label">8</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"8"</property>
@@ -141,7 +141,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="nine">
+                          <object class="HeFillButton" id="nine">
                             <property name="label">9</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"9"</property>
@@ -152,7 +152,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="mult">
+                          <object class="HeFillButton" id="mult">
                             <property name="label">×</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"*"</property>
@@ -172,7 +172,7 @@
                       <object class="GtkBox">
                         <property name="spacing">12</property>
                         <child>
-                          <object class="GtkButton" id="four">
+                          <object class="HeFillButton" id="four">
                             <property name="label">4</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"4"</property>
@@ -183,7 +183,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="five">
+                          <object class="HeFillButton" id="five">
                             <property name="label">5</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"5"</property>
@@ -194,7 +194,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="six">
+                          <object class="HeFillButton" id="six">
                             <property name="label">6</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"6"</property>
@@ -205,7 +205,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="min">
+                          <object class="HeFillButton" id="min">
                             <property name="label">-</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"-"</property>
@@ -225,7 +225,7 @@
                       <object class="GtkBox">
                         <property name="spacing">12</property>
                         <child>
-                          <object class="GtkButton" id="one">
+                          <object class="HeFillButton" id="one">
                             <property name="label">1</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"1"</property>
@@ -236,7 +236,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="two">
+                          <object class="HeFillButton" id="two">
                             <property name="label">2</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"2"</property>
@@ -247,7 +247,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="three">
+                          <object class="HeFillButton" id="three">
                             <property name="label">3</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"3"</property>
@@ -258,7 +258,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="plus">
+                          <object class="HeFillButton" id="plus">
                             <property name="label">+</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"+"</property>
@@ -278,7 +278,7 @@
                       <object class="GtkBox">
                         <property name="spacing">12</property>
                         <child>
-                          <object class="GtkButton" id="dzero">
+                          <object class="HeFillButton" id="dzero">
                             <property name="label">00</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"00"</property>
@@ -289,7 +289,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="zero">
+                          <object class="HeFillButton" id="zero">
                             <property name="label">0</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"0"</property>
@@ -300,7 +300,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="dot">
+                          <object class="HeFillButton" id="dot">
                             <property name="label">.</property>
                             <property name="action-name">win.action-insert</property>
                             <property name="action-target">"."</property>
