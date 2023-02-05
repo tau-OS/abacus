@@ -25,14 +25,14 @@
   background: alpha(@accent_bg_color, 0.4);
 }
 .destructive-operator {
-  background: alpha(@error_container_color, 0.2);
-  color: @view_fg_color;
+  background: @error_container_color;
+  color: @error_container_fg_color;
 }
 .destructive-operator:hover {
-  background: alpha(@error_container_color, 0.3);
+  background: shade(@error_container_color, 0.9);
 }
 .destructive-operator:active {
-  background: alpha(@error_container_color, 0.4);
+  background: shade(@error_container_color, 0.8);
 }
 .calc-entry {
   border-radius: 0px;
