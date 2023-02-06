@@ -25,14 +25,14 @@
   background: linear-gradient(0deg, alpha(@accent_bg_color, 0.15), alpha(@accent_bg_color, 0.15)), image(@view_bg_color);
 }
 .destructive-operator {
-  background: @error_container_color;
-  color: @error_container_fg_color;
+  background: linear-gradient(0deg, alpha(@error_bg_color, 0.11), alpha(@error_bg_color, 0.11)), image(@view_bg_color);
+  color: @error_fg_color;
 }
 .destructive-operator:hover {
-  background: shade(@error_container_color, 0.9);
+  background: linear-gradient(0deg, alpha(@error_bg_color, 0.14), alpha(@error_bg_color, 0.14)), image(@view_bg_color);
 }
 .destructive-operator:active {
-  background: shade(@error_container_color, 0.8);
+  background: linear-gradient(0deg, alpha(@error_bg_color, 0.15), alpha(@error_bg_color, 0.15)), image(@view_bg_color);
 }
 .calc-entry {
   border-radius: 0px;
