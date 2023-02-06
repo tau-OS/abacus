@@ -1,6 +1,6 @@
 .calc-button {
-  background: alpha(@accent_bg_color, 0.1);
-  color: @view_fg_color;
+  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.05), alpha(@accent_bg_color, 0.05)), image(@view_bg_color);
+  color: @accent_color;
   border-radius: 999px;
   font-size: 18px;
   font-weight: 300;
@@ -9,20 +9,20 @@
   padding: 4px;
 }
 .calc-button:hover {
-  background: alpha(@accent_bg_color, 0.2);
+  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.08), alpha(@accent_bg_color, 0.08)), image(@view_bg_color);
 }
 .calc-button:active {
-  background: alpha(@accent_bg_color, 0.3);
+  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.11), alpha(@accent_bg_color, 0.11)), image(@view_bg_color);
 }
 .operator {
-  background: alpha(@accent_bg_color, 0.2);
-  color: @view_fg_color;
+  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.08), alpha(@accent_bg_color, 0.08)), image(@view_bg_color);
+  color: @accent_color;
 }
 .operator:hover {
-  background: alpha(@accent_bg_color, 0.3);
+  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.11), alpha(@accent_bg_color, 0.11)), image(@view_bg_color);
 }
 .operator:active {
-  background: alpha(@accent_bg_color, 0.4);
+  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.14), alpha(@accent_bg_color, 0.14)), image(@view_bg_color);
 }
 .destructive-operator {
   background: @error_container_color;
@@ -36,7 +36,7 @@
 }
 .calc-entry {
   border-radius: 0px;
-  background: @window_bg_color;
+  background: none;
   padding: 8px 12px;
   box-shadow: none;
   outline-color: transparent;
@@ -45,15 +45,4 @@
   background: none;
   box-shadow: none;
   outline-color: transparent;
-}
-
-.suggested-action {
-  background: @accent_bg_color;
-  color: @accent_fg_color;
-}
-.suggested-action:hover {
-  background: mix(@accent_bg_color, alpha(@view_fg_color, 0.3), 0.3);
-}
-.suggested-action:active {
-  background: mix(@accent_bg_color, alpha(@view_fg_color, 0.4), 0.3);
 }
