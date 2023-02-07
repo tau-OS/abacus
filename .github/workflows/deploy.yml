@@ -27,7 +27,7 @@ jobs:
       name: "Build"
       with:
         bundle: abacus.flatpak
-        manifest-path: co.tauos.Abacus.json
+        manifest-path: com.fyralabs.Abacus.json
         cache-key: flatpak-builder-${{ github.sha }}
         repository-name: catalogue
         repository-url: https://repo.tauos.co/catalogue.flatpakrepo

@@ -35,14 +35,14 @@ $ ninja test
 For debug messages on the GUI application, set the `G_MESSAGES_DEBUG` environment variable, e.g. to `all`:
 
 ```bash
-G_MESSAGES_DEBUG=all ./src/co.tauos.Abacus
+G_MESSAGES_DEBUG=all ./src/com.fyralabs.Abacus
 ```
 
 ## 📦 Installing
 
-To install, use `ninja install`, then execute with `co.tauos.Abacus`.
+To install, use `ninja install`, then execute with `com.fyralabs.Abacus`.
 
 ```bash
 $ sudo ninja install
-$ co.tauos.Abacus
+$ com.fyralabs.Abacus
 ```

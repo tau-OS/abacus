@@ -1,11 +1,11 @@
-# Spanish translations for co.tauos.Abacus package.
-# Copyright (C) 2023 THE co.tauos.Abacus'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the co.tauos.Abacus package.
+# Spanish translations for com.fyralabs.Abacus package.
+# Copyright (C) 2023 THE com.fyralabs.Abacus'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.fyralabs.Abacus package.
 # Automatically generated, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: co.tauos.Abacus\n"
+"Project-Id-Version: com.fyralabs.Abacus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-21 22:56-0800\n"
 "PO-Revision-Date: 2023-01-21 22:42-0800\n"

@@ -20,62 +20,62 @@
  *
  */
 
-[GtkTemplate (ui = "/co/tauos/Abacus/window.ui")]
+[GtkTemplate (ui = "/com/fyralabs/Abacus/window.ui")]
 public class Abacus.MainWindow : He.ApplicationWindow {
-	[GtkChild]
-	private unowned He.OverlayButton eq;
-	[GtkChild]
-	private unowned Gtk.Entry entry;
     [GtkChild]
-	private unowned Gtk.Label result;
+    private unowned He.OverlayButton eq;
+    [GtkChild]
+    private unowned Gtk.Entry entry;
+    [GtkChild]
+    private unowned Gtk.Label result;
 
-	private Core.Evaluation eval;
+    private Core.Evaluation eval;
     private int position;
     private int decimal_places;
 
-	public const string ACTION_PREFIX = "win.";
-	public const string ACTION_CLEAR = "action-clear";
+    public const string ACTION_PREFIX = "win.";
+    public const string ACTION_CLEAR = "action-clear";
     public const string ACTION_DELETE = "action-delete";
     public const string ACTION_INSERT = "action-insert";
     public const string ACTION_ABOUT = "action-about";
     public const string ACTION_PREFS = "action-prefs";
 
     private const ActionEntry[] ACTION_ENTRIES = {
-        { ACTION_INSERT, action_insert, "s"},
-		{ ACTION_CLEAR, action_clear },
+        { ACTION_INSERT, action_insert, "s" },
+        { ACTION_CLEAR, action_clear },
         { ACTION_DELETE, action_delete },
-        { ACTION_ABOUT, action_about},
-		{ ACTION_PREFS, action_prefs }
+        { ACTION_ABOUT, action_about },
+        { ACTION_PREFS, action_prefs }
     };
 
-	public class MainWindow (He.Application app) {
-		Object (
-			application: app
-		);
+    public class MainWindow (He.Application app) {
+        Object (
+                application: app
+        );
     }
 
     construct {
-		add_action_entries (ACTION_ENTRIES, this);
-		eval = new Core.Evaluation ();
-		decimal_places = 2;
+        add_action_entries (ACTION_ENTRIES, this);
+        eval = new Core.Evaluation ();
+        decimal_places = 2;
 
         var application_instance = (Gtk.Application) GLib.Application.get_default ();
-        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_CLEAR, {"Escape"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_CLEAR, { "Escape" });
 
-		entry.grab_focus ();
+        entry.grab_focus ();
         entry.activate.connect (eq_clicked);
         entry.get_delegate ().insert_text.connect (replace_text);
 
-		eq.clicked.connect (() => {eq_clicked ();});
+        eq.clicked.connect (() => { eq_clicked (); });
 
-		unichar[] allowed_characters_arr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*', ',', '÷', '×', '.', '%'};
+        unichar[] allowed_characters_arr = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*', ',', '÷', '×', '.', '%' };
 
-		foreach (var chr in allowed_characters_arr) {
-		    this.allowed_characters.add(chr);
-		}
+        foreach (var chr in allowed_characters_arr) {
+            this.allowed_characters.add (chr);
+        }
 
         this.show ();
-	}
+    }
 
     private void action_insert (SimpleAction action, Variant? variant) {
         var token = variant.get_string ();
@@ -101,7 +101,7 @@ public class Abacus.MainWindow : He.ApplicationWindow {
     private void eq_clicked () {
         position = entry.get_position ();
         if (entry.get_text () != "") {
-			try {
+            try {
                 var output = eval.evaluate (entry.get_text (), decimal_places);
                 result.label = entry.get_text ();
                 if (entry.get_text () != output) {
@@ -155,19 +155,19 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
     private void action_about () {
         var about = new He.AboutWindow (
-            this,
-            "Abacus" + Config.NAME_SUFFIX,
-            "co.tauos.Abacus",
-            Config.VERSION,
-            Config.APP_ID,
-            "https:/fyralabs.com",
-            "https:/fyralabs.com",
-            "https:/fyralabs.com",
-            {},
-            {"Lains"},
-            2022,
-            He.AboutWindow.Licenses.GPLv3,
-            He.Colors.PURPLE
+                                        this,
+                                        "Abacus" + Config.NAME_SUFFIX,
+                                        "com.fyralabs.Abacus",
+                                        Config.VERSION,
+                                        Config.APP_ID,
+                                        "https:/fyralabs.com",
+                                        "https:/fyralabs.com",
+                                        "https:/fyralabs.com",
+                                        {},
+                                        { "Lains" },
+                                        2022,
+                                        He.AboutWindow.Licenses.GPLv3,
+                                        He.Colors.PURPLE
         );
         about.present ();
     }
@@ -176,36 +176,36 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         // TODO: Preferences window
     }
 
-    private Gee.TreeSet<unichar>allowed_characters = new Gee.TreeSet<unichar>();
+    private Gee.TreeSet<unichar> allowed_characters = new Gee.TreeSet<unichar> ();
 
     private void replace_text (string new_text, int new_text_length, ref int position) {
         if (new_text == "=") {
             Signal.stop_emission_by_name ((void*) entry.get_delegate (), "insert-text");
-            eq_clicked();
+            eq_clicked ();
             return;
         }
 
-        for (int i = 0; i < new_text.char_count(); i++) {
-            var chr = new_text.get_char(i);
-            if (!this.allowed_characters.contains(chr)) {
-               Signal.stop_emission_by_name ((void*) entry.get_delegate (), "insert-text");
-               return;
+        for (int i = 0; i < new_text.char_count (); i++) {
+            var chr = new_text.get_char (i);
+            if (!this.allowed_characters.contains (chr)) {
+                Signal.stop_emission_by_name ((void*) entry.get_delegate (), "insert-text");
+                return;
             }
         }
 
         var replacement_text = "";
 
         switch (new_text) {
-            case ".":
-            case ",":
-                replacement_text = Posix.nl_langinfo (Posix.NLItem.RADIXCHAR);
-                break;
-            case "/":
-                replacement_text = "÷";
-                break;
-            case "*":
-                replacement_text = "×";
-                break;
+        case ".":
+        case ",":
+            replacement_text = Posix.nl_langinfo (Posix.NLItem.RADIXCHAR);
+            break;
+        case "/":
+            replacement_text = "÷";
+            break;
+        case "*":
+            replacement_text = "×";
+            break;
         }
 
         if (replacement_text != "" && replacement_text != new_text) {

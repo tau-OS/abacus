@@ -1,17 +1,17 @@
 {
-    "app-id" : "co.tauos.Abacus.Devel",
-    "runtime" : "co.tauos.Sdk",
-    "sdk" : "co.tauos.Sdk",
-    "runtime-version" : "stable",
-    "command" : "co.tauos.Abacus",
-    "desktop-file-name-suffix" : " (Development)",
-    "finish-args" : [
+    "app-id": "com.fyralabs.Abacus.Devel",
+    "runtime": "com.fyralabs.Sdk",
+    "sdk": "com.fyralabs.Sdk",
+    "runtime-version": "stable",
+    "command": "com.fyralabs.Abacus",
+    "desktop-file-name-suffix": " (Development)",
+    "finish-args": [
         "--device=dri",
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland"
     ],
-    "cleanup" : [
+    "cleanup": [
         "/include",
         "/lib/pkgconfig",
         "/man",
@@ -22,23 +22,23 @@
         "*.la",
         "*.a"
     ],
-    "modules" : [
+    "modules": [
         {
-            "name" : "abacus",
-            "builddir" : true,
-            "buildsystem" : "meson",
-            "config-opts" : [
+            "name": "abacus",
+            "builddir": true,
+            "buildsystem": "meson",
+            "config-opts": [
                 "-Ddevelopment=true"
             ],
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "dir",
-                    "path" : "."
+                    "type": "dir",
+                    "path": "."
                 }
             ]
         }
     ],
-    "build-options" : {
-        "env" : {        }
+    "build-options": {
+        "env": {}
     }
 }

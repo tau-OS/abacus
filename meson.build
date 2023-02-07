@@ -1,4 +1,4 @@
-project('co.tauos.Abacus',
+project('com.fyralabs.Abacus',
         'vala', 'c',
         version: '0.1.0'
 )
@@ -7,10 +7,10 @@ gnome = import('gnome')
 i18n = import('i18n')
 
 if get_option('development')
-  app_id = 'co.tauos.Abacus.Devel'
+  app_id = 'com.fyralabs.Abacus.Devel'
   name_suffix = ' (Nightly)'
 else
-  app_id = 'co.tauos.Abacus'
+  app_id = 'com.fyralabs.Abacus'
   name_suffix = ''
 endif
 

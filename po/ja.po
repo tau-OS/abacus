@@ -1,11 +1,11 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the co.tauos.Abacus package.
+# This file is distributed under the same license as the com.fyralabs.Abacus package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: co.tauos.Abacus\n"
+"Project-Id-Version: com.fyralabs.Abacus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-21 22:56-0800\n"
 "PO-Revision-Date: 2023-01-24 21:11+0000\n"
@@ -19,19 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.15.1\n"
 
-#: data/co.tauos.Abacus.desktop.in:4
+#: data/com.fyralabs.Abacus.desktop.in:4
 msgid "Abacus"
 msgstr "Abacus"
 
-#: data/co.tauos.Abacus.desktop.in:5
+#: data/com.fyralabs.Abacus.desktop.in:5
 msgid "Calculate stuff"
 msgstr "計算する"
 
-#: data/co.tauos.Abacus.desktop.in:6
+#: data/com.fyralabs.Abacus.desktop.in:6
 msgid "Calculator"
 msgstr "計算機"
 
-#: data/co.tauos.Abacus.desktop.in:11
+#: data/com.fyralabs.Abacus.desktop.in:11
 msgid "calculator;"
 msgstr "calculator;計算機;"
 
