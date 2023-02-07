@@ -1,5 +1,5 @@
 {
-    "app-id": "com.fyralabs.Abacus.Devel",
+    "id": "com.fyralabs.Abacus.Devel",
     "runtime": "com.fyralabs.Sdk",
     "sdk": "com.fyralabs.Sdk",
     "runtime-version": "stable",

@@ -20,7 +20,7 @@
  *
  */
 
- namespace Abacus.Core {
+namespace Abacus.Core {
     public errordomain SCANNER_ERROR {
         UNKNOWN_TOKEN,
         ALPHA_INVALID
@@ -71,7 +71,7 @@
                         continue;
                     }
                 } else if (t.token_type == TokenType.NULL_NUMBER) {
-                    //Insert a leading zero to make complete number e.g. .5 -> 0.5
+                    // Insert a leading zero to make complete number e.g. .5 -> 0.5
                     t.content = "0" + t.content;
                     t.token_type = TokenType.NUMBER;
                 }
@@ -115,8 +115,8 @@
                 }
                 type = TokenType.NUMBER;
             } else if (uc[pos] == '+' || uc[pos] == '-' || uc[pos] == '*' ||
-                        uc[pos] == '/' || uc[pos] == '^' || uc[pos] == '%' ||
-                        uc[pos] == '÷' || uc[pos] == '×' || uc[pos] == '−') {
+                       uc[pos] == '/' || uc[pos] == '^' || uc[pos] == '%' ||
+                       uc[pos] == '÷' || uc[pos] == '×' || uc[pos] == '−') {
                 pos++;
                 type = TokenType.OPERATOR;
             } else if (uc[pos].isalpha ()) {

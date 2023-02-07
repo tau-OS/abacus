@@ -20,9 +20,9 @@
  *
  */
 
- namespace Abacus {
+namespace Abacus {
     public enum TokenType {
-        NULL_NUMBER, //A number with a decimal point but no leading digits e.g. .5
+        NULL_NUMBER, // A number with a decimal point but no leading digits e.g. .5
         NUMBER,
         OPERATOR,
         SEPARATOR,
@@ -36,8 +36,8 @@
 
         public Token (string in_content, TokenType in_token_type) {
             Object (
-                content: in_content,
-                token_type: in_token_type
+                    content: in_content,
+                    token_type: in_token_type
             );
         }
     }

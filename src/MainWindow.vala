@@ -50,7 +50,8 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
     public class MainWindow (He.Application app) {
         Object (
-                application: app
+                application: app,
+                title: "Abacus"
         );
     }
 
@@ -68,7 +69,25 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
         eq.clicked.connect (() => { eq_clicked (); });
 
-        unichar[] allowed_characters_arr = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*', ',', '÷', '×', '.', '%' };
+        unichar[] allowed_characters_arr = { '0',
+                                             '1',
+                                             '2',
+                                             '3',
+                                             '4',
+                                             '5',
+                                             '6',
+                                             '7',
+                                             '8',
+                                             '9',
+                                             '+',
+                                             '-',
+                                             '/',
+                                             '*',
+                                             ',',
+                                             '÷',
+                                             '×',
+                                             '.',
+                                             '%' };
 
         foreach (var chr in allowed_characters_arr) {
             this.allowed_characters.add (chr);
