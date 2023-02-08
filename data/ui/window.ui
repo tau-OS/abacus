@@ -391,6 +391,7 @@
                                 <property name="xalign">0</property>
                                 <style>
                                   <class name="display" />
+                                  <class name="text-field" />
                                   <class name="numeric" />
                                 </style>
                               </object>
@@ -418,6 +419,7 @@
                                 <property name="xalign">0</property>
                                 <style>
                                   <class name="display" />
+                                  <class name="text-field" />
                                   <class name="numeric" />
                                 </style>
                               </object>
