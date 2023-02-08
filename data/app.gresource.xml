@@ -8,5 +8,6 @@
     </gresource>
     <gresource prefix="/com/fyralabs/Abacus/icons">
         <file alias="scalable/actions/equals-symbolic.svg">icons/equals-symbolic.svg</file>
+        <file alias="scalable/actions/clears-symbolic.svg">icons/clears-symbolic.svg</file>
     </gresource>
 </gresources>

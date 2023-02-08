@@ -1,6 +1,5 @@
 /*-
- * Copyright (C) 2022      Fyra Labs
- * Copyright (C) 2014      Marvin Beckers <beckersmarvin@gmail.com>
+ * Copyright (C) 2023 Fyra Labs
  *
  * The following code uses parts of the original work,
  * while keeping the original attribution.
@@ -25,25 +24,66 @@ public class Abacus.MainWindow : He.ApplicationWindow {
     [GtkChild]
     private unowned He.OverlayButton eq;
     [GtkChild]
+    private unowned He.OverlayButton eq2;
+    [GtkChild]
     private unowned Gtk.Entry entry;
     [GtkChild]
+    private unowned Gtk.Entry from_entry;
+    [GtkChild]
+    private unowned Gtk.Entry to_entry;
+    [GtkChild]
     private unowned Gtk.Label result;
+    [GtkChild]
+    private unowned Gtk.Stack stack;
+    [GtkChild]
+    private unowned Gtk.ToggleButton converter;
+
+    [GtkChild]
+    private unowned He.DisclosureButton swap_button;
+    [GtkChild]
+    private unowned Gtk.DropDown units_dropdown;
+    [GtkChild]
+    private unowned Gtk.DropDown temp_dropdown_from;
+    [GtkChild]
+    private unowned Gtk.DropDown temp_dropdown_to;
+    [GtkChild]
+    private unowned Gtk.DropDown mass_dropdown_from;
+    [GtkChild]
+    private unowned Gtk.DropDown mass_dropdown_to;
+    [GtkChild]
+    private unowned Gtk.DropDown len_dropdown_from;
+    [GtkChild]
+    private unowned Gtk.DropDown len_dropdown_to;
+    [GtkChild]
+    private unowned Gtk.DropDown vol_dropdown_from;
+    [GtkChild]
+    private unowned Gtk.DropDown vol_dropdown_to;
 
     private Core.Evaluation eval;
     private int position;
+    private int converter_position;
     private int decimal_places;
+
+    private Convertor[] convertors;
+    private uint convertor_index;
 
     public const string ACTION_PREFIX = "win.";
     public const string ACTION_CLEAR = "action-clear";
+    public const string ACTION_CLEAR_CONVERTER = "action-clear-converter";
     public const string ACTION_DELETE = "action-delete";
+    public const string ACTION_DELETE_CONVERTER = "action-delete-converter";
     public const string ACTION_INSERT = "action-insert";
+    public const string ACTION_INSERT_CONVERTER = "action-insert-converter";
     public const string ACTION_ABOUT = "action-about";
     public const string ACTION_PREFS = "action-prefs";
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_INSERT, action_insert, "s" },
+        { ACTION_INSERT_CONVERTER, action_insert_converter, "s" },
         { ACTION_CLEAR, action_clear },
+        { ACTION_CLEAR_CONVERTER, action_clear_converter },
         { ACTION_DELETE, action_delete },
+        { ACTION_DELETE_CONVERTER, action_delete_converter },
         { ACTION_ABOUT, action_about },
         { ACTION_PREFS, action_prefs }
     };
@@ -67,7 +107,11 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         entry.activate.connect (eq_clicked);
         entry.get_delegate ().insert_text.connect (replace_text);
 
+        from_entry.activate.connect (converter_eq_clicked);
+        from_entry.get_delegate ().insert_text.connect (converter_replace_text);
+
         eq.clicked.connect (() => { eq_clicked (); });
+        eq2.clicked.connect (() => { converter_eq_clicked (); });
 
         unichar[] allowed_characters_arr = { '0',
                                              '1',
@@ -93,7 +137,54 @@ public class Abacus.MainWindow : He.ApplicationWindow {
             this.allowed_characters.add (chr);
         }
 
+        converter.toggled.connect (() => {
+            if (converter.active) {
+                stack.set_visible_child_name ("converter");
+            } else {
+                stack.set_visible_child_name ("calculator");
+            }
+        });
+
+        swap_button.clicked.connect (swap);
+        units_dropdown.notify["selected"].connect (change_units);
+
+        SimpleAction swap_action = new SimpleAction ("swap", null);
+        swap_action.activate.connect (swap);
+        add_action (swap_action);
+        this.get_application ().set_accels_for_action ("win.swap", { "<primary>w" });
+
+        convertors = {
+            new TempConvertor ().init (temp_dropdown_from, temp_dropdown_to),
+            new MassConvertor ().init (mass_dropdown_from, mass_dropdown_to),
+            new LengthConvertor ().init (len_dropdown_from, len_dropdown_to),
+            new VolumeConvertor ().init (vol_dropdown_from, vol_dropdown_to)
+        };
+        convertor_index = 0;
+
         this.show ();
+    }
+
+    public void swap () {
+        convertors[convertor_index].swap ();
+    }
+
+    public void change_units () {
+        /*
+         * 0 = Temperature
+         * 1 = Mass
+         * 2 = Length
+         */
+
+        convertor_index = units_dropdown.get_selected ();
+        for (int i = 0; i < convertors.length; i++) {
+            convertors[i].hide ();
+        }
+        convertors[convertor_index].show ();
+
+        from_entry.set_text ("");
+        to_entry.set_text ("");
+
+        from_entry.grab_focus ();
     }
 
     private void action_insert (SimpleAction action, Variant? variant) {
@@ -117,6 +208,26 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         entry.set_position (new_position);
     }
 
+    private void action_insert_converter (SimpleAction action, Variant? variant) {
+        var token = variant.get_string ();
+        int new_position = from_entry.get_position ();
+        int selection_start, selection_end, selection_length;
+        bool is_text_selected = from_entry.get_selection_bounds (out selection_start, out selection_end);
+        if (is_text_selected) {
+            new_position = selection_end;
+            from_entry.delete_selection ();
+            selection_length = selection_end - selection_start;
+            new_position -= selection_length;
+        }
+
+        var cursor_position = from_entry.cursor_position;
+        from_entry.do_insert_text (token, -1, ref cursor_position);
+
+        new_position += token.char_count ();
+        from_entry.grab_focus ();
+        from_entry.set_position (new_position);
+    }
+
     private void eq_clicked () {
         position = entry.get_position ();
         if (entry.get_text () != "") {
@@ -134,6 +245,22 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
         entry.grab_focus ();
         entry.set_position (position);
+    }
+
+    private void converter_eq_clicked () {
+        converter_position = from_entry.get_position ();
+        if (from_entry.get_text () != "") {
+            float convert_value = float.parse (from_entry.get_text ());
+            string output = convertors[convertor_index].convert (convert_value);
+            if (to_entry.get_text () != output) {
+                to_entry.set_text (output);
+                position = output.length;
+            }
+        } else {
+        }
+
+        to_entry.grab_focus ();
+        to_entry.set_position (position);
     }
 
     private void action_delete () {
@@ -162,6 +289,31 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         result.label = "";
     }
 
+    private void action_delete_converter () {
+        converter_position = from_entry.get_position ();
+        if (from_entry.get_text ().length > 0) {
+            string new_text = "";
+            int index = 0;
+            unowned unichar c;
+            List<unichar> news = new List<unichar> ();
+
+            for (int i = 0; from_entry.get_text ().get_next_char (ref index, out c); i++) {
+                if (i + 1 != converter_position) {
+                    news.append (c);
+                }
+            }
+
+            foreach (unichar u in news) {
+                new_text += u.to_string ();
+            }
+
+            from_entry.set_text (new_text);
+        }
+
+        from_entry.grab_focus ();
+        from_entry.set_position (converter_position - 1);
+    }
+
     private void action_clear () {
         position = 0;
         entry.set_text ("");
@@ -170,6 +322,16 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
         entry.grab_focus ();
         entry.set_position (position);
+    }
+
+    private void action_clear_converter () {
+        converter_position = 0;
+        from_entry.set_text ("");
+        to_entry.set_text ("");
+        set_focus (from_entry);
+
+        from_entry.grab_focus ();
+        from_entry.set_position (converter_position);
     }
 
     private void action_about () {
@@ -230,6 +392,33 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         if (replacement_text != "" && replacement_text != new_text) {
             entry.do_insert_text (replacement_text, entry.cursor_position + replacement_text.char_count (), ref position);
             Signal.stop_emission_by_name ((void*) entry.get_delegate (), "insert-text");
+        }
+    }
+
+    private void converter_replace_text (string new_text, int new_text_length, ref int position) {
+        if (new_text == "=") {
+            Signal.stop_emission_by_name ((void*) from_entry.get_delegate (), "insert-text");
+            Signal.stop_emission_by_name ((void*) to_entry.get_delegate (), "insert-text");
+            converter_eq_clicked ();
+            return;
+        }
+
+        for (int i = 0; i < new_text.char_count (); i++) {
+            var chr = new_text.get_char (i);
+            if (!this.allowed_characters.contains (chr)) {
+                Signal.stop_emission_by_name ((void*) from_entry.get_delegate (), "insert-text");
+                Signal.stop_emission_by_name ((void*) to_entry.get_delegate (), "insert-text");
+                return;
+            }
+        }
+
+        var replacement_text = "";
+
+        if (replacement_text != "" && replacement_text != new_text) {
+            from_entry.do_insert_text (replacement_text, from_entry.cursor_position + replacement_text.char_count (), ref position);
+            to_entry.do_insert_text (replacement_text, to_entry.cursor_position + replacement_text.char_count (), ref position);
+            Signal.stop_emission_by_name ((void*) to_entry.get_delegate (), "insert-text");
+            Signal.stop_emission_by_name ((void*) from_entry.get_delegate (), "insert-text");
         }
     }
 }

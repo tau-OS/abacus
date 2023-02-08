@@ -43,6 +43,7 @@ sources = files(
     'src/Application.vala',
     'src/MainWindow.vala',
     'src/Evaluation.vala',
+    'src/Convertor.vala',
     'src/Token.vala',
     'src/Scanner.vala',
 )

@@ -1,6 +1,5 @@
 /*-
- * Copyright (C) 2022      Fyra Labs
- * Copyright (C) 2014      Marvin Beckers <beckersmarvin@gmail.com>
+ * Copyright (C) 2023 Fyra Labs
  *
  * The following code uses parts of the original work,
  * while keeping the original attribution.

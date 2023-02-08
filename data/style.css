@@ -2,8 +2,8 @@
   background: linear-gradient(0deg, alpha(@accent_bg_color, 0.05), alpha(@accent_bg_color, 0.05)), image(@view_bg_color);
   color: @accent_color;
   border-radius: 999px;
-  font-size: 18px;
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 700;
   min-height: 57px;
   min-width: 57px;
   padding: 4px;
@@ -55,4 +55,16 @@
   background: none;
   box-shadow: none;
   outline-color: transparent;
+}
+
+.dw-flat .toggle {
+  background: none;
+}
+
+.dw-flat .toggle:hover {
+  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.08), alpha(@accent_bg_color, 0.08)), image(@view_bg_color);
+}
+
+.dw-flat .toggle:checked {
+  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.11), alpha(@accent_bg_color, 0.11)), image(@view_bg_color);
 }
