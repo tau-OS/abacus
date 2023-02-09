@@ -345,7 +345,7 @@ public class Abacus.MainWindow : He.ApplicationWindow {
                                         "https:/fyralabs.com",
                                         "https:/fyralabs.com",
                                         {},
-                                        { "Lains" },
+                                        { "Fyra Labs" },
                                         2022,
                                         He.AboutWindow.Licenses.GPLv3,
                                         He.Colors.PURPLE
