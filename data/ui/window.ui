@@ -31,7 +31,7 @@
                   </object>
                 </property>
                 <style>
-                  <class name="dw-flat" />
+                  <class name="view-switcher" />
                 </style>
               </object>
             </property>
@@ -381,6 +381,9 @@
                             <property name="margin-start">18</property>
                             <property name="margin-end">18</property>
                             <property name="support-text" translatable="true">From</property>
+                            <style>
+                              <class name="temp-tf" />
+                            </style>
                           </object>
                         </child>
                         <child>
@@ -388,6 +391,9 @@
                             <property name="margin-start">18</property>
                             <property name="margin-end">18</property>
                             <property name="support-text" translatable="true">To</property>
+                            <style>
+                              <class name="temp-tf" />
+                            </style>
                           </object>
                         </child>
                         <child>
