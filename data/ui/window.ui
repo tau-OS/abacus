@@ -17,6 +17,24 @@
         <child>
           <object class="HeAppBar">
             <property name="show-back">0</property>
+            <property name="viewtitle_widget">
+              <object class="GtkDropDown" id="units_dropdown">
+                <property name="visible">0</property>
+                <property name="halign">start</property>
+                <property name="model">
+                  <object class="GtkStringList">
+                    <items>
+                      <item>Temperature</item>
+                      <item>Mass</item>
+                      <item>Length</item>
+                    </items>
+                  </object>
+                </property>
+                <style>
+                  <class name="dw-flat" />
+                </style>
+              </object>
+            </property>
             <child>
               <object class="GtkMenuButton" id="menu">
                 <property name="icon-name">open-menu</property>
@@ -51,7 +69,7 @@
                             <property name="orientation">vertical</property>
                             <child>
                               <object class="GtkLabel" id="result">
-                                <property name="margin-top">158</property>
+                                <property name="margin-top">27</property>
                                 <property name="margin-start">18</property>
                                 <property name="margin-end">18</property>
                                 <property name="xalign">0</property>
@@ -78,13 +96,13 @@
                             </child>
                             <child>
                               <object class="GtkGrid">
-                                <property name="row-spacing">24</property>
+                                <property name="row-spacing">16</property>
                                 <property name="margin-start">18</property>
                                 <property name="margin-end">18</property>
                                 <property name="margin-bottom">18</property>
                                 <child>
                                   <object class="GtkBox">
-                                    <property name="spacing">24</property>
+                                    <property name="spacing">16</property>
                                     <child>
                                       <object class="HeFillButton" id="ac">
                                         <property name="label">C</property>
@@ -135,7 +153,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkBox">
-                                    <property name="spacing">24</property>
+                                    <property name="spacing">16</property>
                                     <child>
                                       <object class="HeFillButton" id="seven">
                                         <property name="label">7</property>
@@ -188,7 +206,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkBox">
-                                    <property name="spacing">24</property>
+                                    <property name="spacing">16</property>
                                     <child>
                                       <object class="HeFillButton" id="four">
                                         <property name="label">4</property>
@@ -241,7 +259,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkBox">
-                                    <property name="spacing">24</property>
+                                    <property name="spacing">16</property>
                                     <child>
                                       <object class="HeFillButton" id="one">
                                         <property name="label">1</property>
@@ -294,7 +312,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkBox">
-                                    <property name="spacing">24</property>
+                                    <property name="spacing">16</property>
                                     <child>
                                       <object class="HeFillButton" id="dzero">
                                         <property name="label">00</property>
@@ -356,88 +374,24 @@
                     <child>
                       <object class="GtkBox">
                         <property name="orientation">vertical</property>
-                        <property name="spacing">12</property>
-                        <property name="margin-top">12</property>
-                        <property name="margin-bottom">12</property>
+                        <property name="spacing">6</property>
+                        <property name="margin-bottom">6</property>
                         <child>
-                          <object class="GtkBox">
-                            <property name="spacing">6</property>
-                            <property name="orientation">vertical</property>
-                            <property name="margin-start">10</property>
-                            <property name="margin-end">10</property>
-                            <child>
-                              <object class="GtkDropDown" id="units_dropdown">
-                                <property name="margin-start">8</property>
-                                <property name="margin-end">8</property>
-                                <property name="halign">start</property>
-                                <property name="model">
-                                  <object class="GtkStringList">
-                                    <items>
-                                      <item>Temperature</item>
-                                      <item>Mass</item>
-                                      <item>Length</item>
-                                    </items>
-                                  </object>
-                                </property>
-                                <style>
-                                  <class name="dw-flat" />
-                                </style>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkEntry" id="from_entry">
-                                <property name="margin-start">8</property>
-                                <property name="margin-end">8</property>
-                                <property name="xalign">0</property>
-                                <style>
-                                  <class name="display" />
-                                  <class name="text-field" />
-                                  <class name="numeric" />
-                                </style>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="from">
-                                <property name="margin-start">8</property>
-                                <property name="margin-end">8</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="true">From</property>
-                              </object>
-                            </child>
+                          <object class="HeTextField" id="from_entry">
+                            <property name="margin-start">18</property>
+                            <property name="margin-end">18</property>
+                            <property name="support-text" translatable="true">From</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="HeTextField" id="to_entry">
+                            <property name="margin-start">18</property>
+                            <property name="margin-end">18</property>
+                            <property name="support-text" translatable="true">To</property>
                           </object>
                         </child>
                         <child>
                           <object class="GtkBox">
-                            <property name="spacing">6</property>
-                            <property name="orientation">vertical</property>
-                            <property name="margin-start">10</property>
-                            <property name="margin-end">10</property>
-                            <child>
-                              <object class="GtkEntry" id="to_entry">
-                                <property name="margin-start">8</property>
-                                <property name="margin-end">8</property>
-                                <property name="xalign">0</property>
-                                <style>
-                                  <class name="display" />
-                                  <class name="text-field" />
-                                  <class name="numeric" />
-                                </style>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="to">
-                                <property name="margin-start">8</property>
-                                <property name="margin-end">8</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="true">To</property>
-                                <property name="halign">start</property>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkBox">
-                            <property name="margin-top">24</property>
                             <property name="spacing">6</property>
                             <property name="homogeneous">true</property>
                             <property name="margin-start">18</property>
@@ -579,13 +533,11 @@
                         </child>
                         <child>
                           <object class="GtkGrid">
-                            <property name="row-spacing">24</property>
-                            <property name="margin-top">24</property>
-                            <property name="margin-bottom">18</property>
+                            <property name="row-spacing">16</property>
                             <property name="column-homogeneous">true</property>
                             <child>
                               <object class="GtkBox">
-                                <property name="spacing">24</property>
+                                <property name="spacing">16</property>
                                 <property name="homogeneous">true</property>
                                 <property name="margin-start">18</property>
                                 <property name="margin-end">18</property>
@@ -630,7 +582,7 @@
                             </child>
                             <child>
                               <object class="GtkBox">
-                                <property name="spacing">24</property>
+                                <property name="spacing">16</property>
                                 <property name="homogeneous">true</property>
                                 <property name="margin-start">18</property>
                                 <property name="margin-end">18</property>
@@ -675,7 +627,7 @@
                             </child>
                             <child>
                               <object class="GtkBox">
-                                <property name="spacing">24</property>
+                                <property name="spacing">16</property>
                                 <property name="homogeneous">true</property>
                                 <property name="margin-start">18</property>
                                 <property name="margin-end">18</property>
@@ -720,7 +672,7 @@
                             </child>
                             <child>
                               <object class="GtkBox">
-                                <property name="spacing">24</property>
+                                <property name="spacing">16</property>
                                 <property name="homogeneous">true</property>
                                 <property name="margin-start">18</property>
                                 <property name="margin-end">18</property>

@@ -28,9 +28,9 @@ public class Abacus.MainWindow : He.ApplicationWindow {
     [GtkChild]
     private unowned Gtk.Entry entry;
     [GtkChild]
-    private unowned Gtk.Entry from_entry;
+    private unowned He.TextField from_entry;
     [GtkChild]
-    private unowned Gtk.Entry to_entry;
+    private unowned He.TextField to_entry;
     [GtkChild]
     private unowned Gtk.Label result;
     [GtkChild]
@@ -107,8 +107,8 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         entry.activate.connect (eq_clicked);
         entry.get_delegate ().insert_text.connect (replace_text);
 
-        from_entry.activate.connect (converter_eq_clicked);
-        from_entry.get_delegate ().insert_text.connect (converter_replace_text);
+        from_entry.get_entry ().activate.connect (converter_eq_clicked);
+        from_entry.get_entry ().get_delegate ().insert_text.connect (converter_replace_text);
 
         eq.clicked.connect (() => { eq_clicked (); });
         eq2.clicked.connect (() => { converter_eq_clicked (); });
@@ -140,8 +140,10 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         converter.toggled.connect (() => {
             if (converter.active) {
                 stack.set_visible_child_name ("converter");
+                units_dropdown.visible = true;
             } else {
                 stack.set_visible_child_name ("calculator");
+                units_dropdown.visible = false;
             }
         });
 
@@ -181,10 +183,10 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         }
         convertors[convertor_index].show ();
 
-        from_entry.set_text ("");
-        to_entry.set_text ("");
+        from_entry.get_entry ().set_text ("");
+        to_entry.get_entry ().set_text ("");
 
-        from_entry.grab_focus ();
+        from_entry.get_entry ().grab_focus ();
     }
 
     private void action_insert (SimpleAction action, Variant? variant) {
@@ -210,22 +212,22 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
     private void action_insert_converter (SimpleAction action, Variant? variant) {
         var token = variant.get_string ();
-        int new_position = from_entry.get_position ();
+        int new_position = from_entry.get_entry ().get_position ();
         int selection_start, selection_end, selection_length;
-        bool is_text_selected = from_entry.get_selection_bounds (out selection_start, out selection_end);
+        bool is_text_selected = from_entry.get_entry ().get_selection_bounds (out selection_start, out selection_end);
         if (is_text_selected) {
             new_position = selection_end;
-            from_entry.delete_selection ();
+            from_entry.get_entry ().delete_selection ();
             selection_length = selection_end - selection_start;
             new_position -= selection_length;
         }
 
-        var cursor_position = from_entry.cursor_position;
-        from_entry.do_insert_text (token, -1, ref cursor_position);
+        var cursor_position = from_entry.get_entry ().cursor_position;
+        from_entry.get_entry ().do_insert_text (token, -1, ref cursor_position);
 
         new_position += token.char_count ();
-        from_entry.grab_focus ();
-        from_entry.set_position (new_position);
+        from_entry.get_entry ().grab_focus ();
+        from_entry.get_entry ().set_position (new_position);
     }
 
     private void eq_clicked () {
@@ -248,19 +250,19 @@ public class Abacus.MainWindow : He.ApplicationWindow {
     }
 
     private void converter_eq_clicked () {
-        converter_position = from_entry.get_position ();
-        if (from_entry.get_text () != "") {
-            float convert_value = float.parse (from_entry.get_text ());
+        converter_position = from_entry.get_entry ().get_position ();
+        if (from_entry.get_entry ().get_text () != "") {
+            float convert_value = float.parse (from_entry.get_entry ().get_text ());
             string output = convertors[convertor_index].convert (convert_value);
-            if (to_entry.get_text () != output) {
-                to_entry.set_text (output);
+            if (to_entry.get_entry ().get_text () != output) {
+                to_entry.get_entry ().set_text (output);
                 position = output.length;
             }
         } else {
         }
 
-        to_entry.grab_focus ();
-        to_entry.set_position (position);
+        to_entry.get_entry ().grab_focus ();
+        to_entry.get_entry ().set_position (position);
     }
 
     private void action_delete () {
@@ -290,14 +292,14 @@ public class Abacus.MainWindow : He.ApplicationWindow {
     }
 
     private void action_delete_converter () {
-        converter_position = from_entry.get_position ();
-        if (from_entry.get_text ().length > 0) {
+        converter_position = from_entry.get_entry ().get_position ();
+        if (from_entry.get_entry ().get_text ().length > 0) {
             string new_text = "";
             int index = 0;
             unowned unichar c;
             List<unichar> news = new List<unichar> ();
 
-            for (int i = 0; from_entry.get_text ().get_next_char (ref index, out c); i++) {
+            for (int i = 0; from_entry.get_entry ().get_text ().get_next_char (ref index, out c); i++) {
                 if (i + 1 != converter_position) {
                     news.append (c);
                 }
@@ -307,11 +309,11 @@ public class Abacus.MainWindow : He.ApplicationWindow {
                 new_text += u.to_string ();
             }
 
-            from_entry.set_text (new_text);
+            from_entry.get_entry ().set_text (new_text);
         }
 
-        from_entry.grab_focus ();
-        from_entry.set_position (converter_position - 1);
+        from_entry.get_entry ().grab_focus ();
+        from_entry.get_entry ().set_position (converter_position - 1);
     }
 
     private void action_clear () {
@@ -326,12 +328,12 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
     private void action_clear_converter () {
         converter_position = 0;
-        from_entry.set_text ("");
-        to_entry.set_text ("");
-        set_focus (from_entry);
+        from_entry.get_entry ().set_text ("");
+        to_entry.get_entry ().set_text ("");
+        set_focus (from_entry.get_entry ());
 
-        from_entry.grab_focus ();
-        from_entry.set_position (converter_position);
+        from_entry.get_entry ().grab_focus ();
+        from_entry.get_entry ().set_position (converter_position);
     }
 
     private void action_about () {
@@ -397,8 +399,8 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
     private void converter_replace_text (string new_text, int new_text_length, ref int position) {
         if (new_text == "=") {
-            Signal.stop_emission_by_name ((void*) from_entry.get_delegate (), "insert-text");
-            Signal.stop_emission_by_name ((void*) to_entry.get_delegate (), "insert-text");
+            Signal.stop_emission_by_name ((void*) from_entry.get_entry ().get_delegate (), "insert-text");
+            Signal.stop_emission_by_name ((void*) to_entry.get_entry ().get_delegate (), "insert-text");
             converter_eq_clicked ();
             return;
         }
@@ -406,8 +408,8 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         for (int i = 0; i < new_text.char_count (); i++) {
             var chr = new_text.get_char (i);
             if (!this.allowed_characters.contains (chr)) {
-                Signal.stop_emission_by_name ((void*) from_entry.get_delegate (), "insert-text");
-                Signal.stop_emission_by_name ((void*) to_entry.get_delegate (), "insert-text");
+                Signal.stop_emission_by_name ((void*) from_entry.get_entry ().get_delegate (), "insert-text");
+                Signal.stop_emission_by_name ((void*) to_entry.get_entry ().get_delegate (), "insert-text");
                 return;
             }
         }
@@ -415,10 +417,10 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         var replacement_text = "";
 
         if (replacement_text != "" && replacement_text != new_text) {
-            from_entry.do_insert_text (replacement_text, from_entry.cursor_position + replacement_text.char_count (), ref position);
-            to_entry.do_insert_text (replacement_text, to_entry.cursor_position + replacement_text.char_count (), ref position);
-            Signal.stop_emission_by_name ((void*) to_entry.get_delegate (), "insert-text");
-            Signal.stop_emission_by_name ((void*) from_entry.get_delegate (), "insert-text");
+            from_entry.get_entry ().do_insert_text (replacement_text, from_entry.get_entry ().cursor_position + replacement_text.char_count (), ref position);
+            to_entry.get_entry ().do_insert_text (replacement_text, to_entry.get_entry ().cursor_position + replacement_text.char_count (), ref position);
+            Signal.stop_emission_by_name ((void*) to_entry.get_entry ().get_delegate (), "insert-text");
+            Signal.stop_emission_by_name ((void*) from_entry.get_entry ().get_delegate (), "insert-text");
         }
     }
 }

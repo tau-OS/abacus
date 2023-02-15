@@ -59,12 +59,14 @@
 
 .dw-flat .toggle {
   background: none;
+  margin: 0;
+  padding: 0 12px;
 }
 
 .dw-flat .toggle:hover {
-  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.08), alpha(@accent_bg_color, 0.08)), image(@view_bg_color);
+  background: linear-gradient(0deg, alpha(@view_fg_color, 0.08), alpha(@view_fg_color, 0.08)), image(@view_bg_color);
 }
 
 .dw-flat .toggle:checked {
-  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.11), alpha(@accent_bg_color, 0.11)), image(@view_bg_color);
+  background: linear-gradient(0deg, alpha(@view_fg_color, 0.11), alpha(@view_fg_color, 0.12)), image(@view_bg_color);
 }
