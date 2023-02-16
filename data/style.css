@@ -2,8 +2,8 @@
   background: linear-gradient(0deg, alpha(@accent_bg_color, 0.05), alpha(@accent_bg_color, 0.05)), image(@view_bg_color);
   color: @accent_color;
   border-radius: 999px;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
   min-width: 24px;
   padding: 16px;
 }

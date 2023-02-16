@@ -346,6 +346,10 @@
                                         </style>
                                       </object>
                                     </child>
+                                    <child>
+                                      <object class="GtkFixed">
+                                      </object>
+                                    </child>
                                     <layout>
                                       <property name="column">0</property>
                                       <property name="row">5</property>
