@@ -17,16 +17,16 @@
 }
 
 .operator {
-  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.05), alpha(@accent_bg_color, 0.05)), image(@view_bg_color);
+  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.11), alpha(@accent_bg_color, 0.11)), image(@view_bg_color);
   color: @accent_color;
 }
 
 .operator:hover {
-  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.08), alpha(@accent_bg_color, 0.08)), image(alpha(@accent_bg_color, 0.05));
+  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.08), alpha(@accent_bg_color, 0.08)), image(alpha(@accent_bg_color, 0.11));
 }
 
 .operator:active {
-  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.12), alpha(@accent_bg_color, 0.12)), image(alpha(@accent_bg_color, 0.05));
+  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.12), alpha(@accent_bg_color, 0.12)), image(alpha(@accent_bg_color, 0.11));
 }
 
 .destructive-operator {
