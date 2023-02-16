@@ -69,7 +69,7 @@
                             <property name="orientation">vertical</property>
                             <child>
                               <object class="GtkLabel" id="result">
-                                <property name="margin-top">27</property>
+                                <property name="margin-top">39</property>
                                 <property name="margin-start">18</property>
                                 <property name="margin-end">18</property>
                                 <property name="xalign">0</property>
@@ -402,6 +402,7 @@
                             <property name="homogeneous">true</property>
                             <property name="margin-start">18</property>
                             <property name="margin-end">18</property>
+                            <property name="margin-bottom">8</property>
                             <child>
                               <object class="GtkDropDown" id="temp_dropdown_from">
                                 <property name="model">
@@ -548,6 +549,16 @@
                                 <property name="margin-start">18</property>
                                 <property name="margin-end">18</property>
                                 <child>
+                                  <object class="HeFillButton" id="ac2">
+                                    <property name="label">C</property>
+                                    <property name="action-name">win.action-clear-converter</property>
+                                    <style>
+                                      <class name="calc-button" />
+                                      <class name="destructive-operator" />
+                                    </style>
+                                  </object>
+                                </child>
+                                <child>
                                   <object class="HeFillButton" id="seven2">
                                     <property name="label">7</property>
                                     <property name="action-name">win.action-insert-converter</property>
@@ -592,6 +603,16 @@
                                 <property name="homogeneous">true</property>
                                 <property name="margin-start">18</property>
                                 <property name="margin-end">18</property>
+                                <child>
+                                  <object class="HeFillButton" id="clr2">
+                                    <property name="icon">clears-symbolic</property>
+                                    <property name="action-name">win.action-delete-converter</property>
+                                    <style>
+                                      <class name="calc-button" />
+                                      <class name="operator" />
+                                    </style>
+                                  </object>
+                                </child>
                                 <child>
                                   <object class="HeFillButton" id="four2">
                                     <property name="label">4</property>
@@ -638,6 +659,17 @@
                                 <property name="margin-start">18</property>
                                 <property name="margin-end">18</property>
                                 <child>
+                                  <object class="HeFillButton" id="zero2">
+                                    <property name="label">0</property>
+                                    <property name="action-name">win.action-insert-converter</property>
+                                    <property name="action-target">"0"</property>
+                                    <style>
+                                      <class name="calc-button" />
+                                      <class name="numeric" />
+                                    </style>
+                                  </object>
+                                </child>
+                                <child>
                                   <object class="HeFillButton" id="one2">
                                     <property name="label">1</property>
                                     <property name="action-name">win.action-insert-converter</property>
@@ -682,37 +714,6 @@
                                 <property name="homogeneous">true</property>
                                 <property name="margin-start">18</property>
                                 <property name="margin-end">18</property>
-                                <child>
-                                  <object class="HeFillButton" id="ac2">
-                                    <property name="label">C</property>
-                                    <property name="action-name">win.action-clear-converter</property>
-                                    <style>
-                                      <class name="calc-button" />
-                                      <class name="destructive-operator" />
-                                    </style>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="HeFillButton" id="clr2">
-                                    <property name="icon">clears-symbolic</property>
-                                    <property name="action-name">win.action-delete-converter</property>
-                                    <style>
-                                      <class name="calc-button" />
-                                      <class name="operator" />
-                                    </style>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="HeFillButton" id="zero2">
-                                    <property name="label">0</property>
-                                    <property name="action-name">win.action-insert-converter</property>
-                                    <property name="action-target">"0"</property>
-                                    <style>
-                                      <class name="calc-button" />
-                                      <class name="numeric" />
-                                    </style>
-                                  </object>
-                                </child>
                                 <child>
                                   <object class="GtkFixed">
                                   </object>
