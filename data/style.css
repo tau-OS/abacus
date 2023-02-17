@@ -30,16 +30,16 @@
 }
 
 .destructive-operator {
-  background: linear-gradient(0deg, alpha(@error_bg_color, 0.05), alpha(@error_bg_color, 0.05)), image(@view_bg_color);
-  color: @error_color;
+  background: linear-gradient(0deg, alpha(@success_bg_color, 0.11), alpha(@success_bg_color, 0.11)), image(@view_bg_color);
+  color: @success_color;
 }
 
 .destructive-operator:hover {
-  background: linear-gradient(0deg, alpha(@error_bg_color, 0.08), alpha(@error_bg_color, 0.08)), image(alpha(@error_bg_color, 0.05));
+  background: linear-gradient(0deg, alpha(@success_bg_color, 0.08), alpha(@success_bg_color, 0.08)), image(alpha(@success_bg_color, 0.11));
 }
 
 .destructive-operator:active {
-  background: linear-gradient(0deg, alpha(@error_bg_color, 0.12), alpha(@error_bg_color, 0.12)), image(alpha(@error_bg_color, 0.05));
+  background: linear-gradient(0deg, alpha(@success_bg_color, 0.12), alpha(@success_bg_color, 0.12)), image(alpha(@success_bg_color, 0.11));
 }
 
 .calc-entry {
