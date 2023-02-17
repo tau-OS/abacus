@@ -203,7 +203,6 @@ public class Abacus.MainWindow : He.ApplicationWindow {
 
         var cursor_position = entry.cursor_position;
         entry.do_insert_text (token, -1, ref cursor_position);
-        result.label = "";
 
         new_position += token.char_count ();
         entry.grab_focus ();
@@ -235,10 +234,10 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         if (entry.get_text () != "") {
             try {
                 var output = eval.evaluate (entry.get_text (), decimal_places);
+                result.label = entry.get_text ();
                 if (entry.get_text () != output) {
                     entry.set_text (output);
                     position = output.length;
-                    result.label = entry.get_text ();
                 }
             } catch (Core.OUT_ERROR e) {
                 result.add_css_class ("error-label");
