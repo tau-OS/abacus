@@ -235,11 +235,10 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         if (entry.get_text () != "") {
             try {
                 var output = eval.evaluate (entry.get_text (), decimal_places);
-                result.label = entry.get_text ();
                 if (entry.get_text () != output) {
                     entry.set_text (output);
                     position = output.length;
-                    remove_error ();
+                    result.label = entry.get_text ();
                 }
             } catch (Core.OUT_ERROR e) {
                 result.add_css_class ("error-label");
