@@ -239,14 +239,23 @@ public class Abacus.MainWindow : He.ApplicationWindow {
                 if (entry.get_text () != output) {
                     entry.set_text (output);
                     position = output.length;
+                    remove_error ();
                 }
             } catch (Core.OUT_ERROR e) {
+                result.add_css_class ("error-label");
+                result.label = e.message;
             }
         } else {
+            remove_error ();
         }
 
         entry.grab_focus ();
         entry.set_position (position);
+    }
+
+    private void remove_error () {
+        result.remove_css_class ("error-label");
+        result.label = "";
     }
 
     private void converter_eq_clicked () {

@@ -23,7 +23,8 @@ using GLib.Math;
 
 namespace Abacus.Core {
     private errordomain EVAL_ERROR {
-        NO_OPERATOR
+        NO_OPERATOR,
+        DIVIDE_BY_ZERO_ERROR
     }
 
     private errordomain SHUNTING_ERROR {
@@ -147,9 +148,13 @@ namespace Abacus.Core {
                         if (!stack.is_empty () && o.inputs == 2) {
                             t2 = stack.pop_tail ();
                         }
-                        stack.push_tail (compute (o.eval, t2, t1));
+                        if (o.symbol == "/" && t1.content == "0" || o.symbol == "÷" && t1.content == "0") {
+                            throw new EVAL_ERROR.DIVIDE_BY_ZERO_ERROR ("Division by zero.");
+                        } else {
+                            stack.push_tail (compute (o.eval, t2, t1));
+                        }
                     } catch (SHUNTING_ERROR e) {
-                        throw new EVAL_ERROR.NO_OPERATOR ("");
+                        throw new EVAL_ERROR.NO_OPERATOR ("Found no operators.");
                     }
                 }
             }
