@@ -205,7 +205,6 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         entry.do_insert_text (token, -1, ref cursor_position);
 
         new_position += token.char_count ();
-        entry.grab_focus ();
         entry.set_position (new_position);
     }
 
@@ -225,7 +224,6 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         from_entry.get_entry ().do_insert_text (token, -1, ref cursor_position);
 
         new_position += token.char_count ();
-        from_entry.get_entry ().grab_focus ();
         from_entry.get_entry ().set_position (new_position);
     }
 
@@ -247,7 +245,6 @@ public class Abacus.MainWindow : He.ApplicationWindow {
             remove_error ();
         }
 
-        entry.grab_focus ();
         entry.set_position (position);
     }
 
@@ -268,7 +265,6 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         } else {
         }
 
-        to_entry.get_entry ().grab_focus ();
         to_entry.get_entry ().set_position (position);
     }
 
@@ -293,7 +289,6 @@ public class Abacus.MainWindow : He.ApplicationWindow {
             entry.set_text (new_text);
         }
 
-        entry.grab_focus ();
         entry.set_position (position - 1);
         result.label = "";
     }
@@ -319,7 +314,6 @@ public class Abacus.MainWindow : He.ApplicationWindow {
             from_entry.get_entry ().set_text (new_text);
         }
 
-        from_entry.get_entry ().grab_focus ();
         from_entry.get_entry ().set_position (converter_position - 1);
     }
 
@@ -329,7 +323,6 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         result.label = "";
         set_focus (entry);
 
-        entry.grab_focus ();
         entry.set_position (position);
     }
 
@@ -339,7 +332,6 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         to_entry.get_entry ().set_text ("");
         set_focus (from_entry.get_entry ());
 
-        from_entry.get_entry ().grab_focus ();
         from_entry.get_entry ().set_position (converter_position);
     }
 
