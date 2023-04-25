@@ -102,7 +102,7 @@
                                 <property name="margin-bottom">18</property>
                                 <child>
                                   <object class="GtkBox">
-                                    <property name="spacing">16</property>
+                                    <property name="spacing">18</property>
                                     <child>
                                       <object class="HeFillButton" id="ac">
                                         <property name="label">AC</property>
@@ -153,7 +153,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkBox">
-                                    <property name="spacing">16</property>
+                                    <property name="spacing">18</property>
                                     <child>
                                       <object class="HeFillButton" id="seven">
                                         <property name="label">7</property>
@@ -206,7 +206,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkBox">
-                                    <property name="spacing">16</property>
+                                    <property name="spacing">18</property>
                                     <child>
                                       <object class="HeFillButton" id="four">
                                         <property name="label">4</property>
@@ -259,7 +259,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkBox">
-                                    <property name="spacing">16</property>
+                                    <property name="spacing">18</property>
                                     <child>
                                       <object class="HeFillButton" id="one">
                                         <property name="label">1</property>
@@ -312,7 +312,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkBox">
-                                    <property name="spacing">16</property>
+                                    <property name="spacing">18</property>
                                     <child>
                                       <object class="HeFillButton" id="dzero">
                                         <property name="label">00</property>
