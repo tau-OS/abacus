@@ -19,26 +19,33 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.16.4\n"
 
+#: data/com.fyralabs.Abacus.desktop.in:4
 msgid "Abacus"
 msgstr "Abacus"
 
+#: data/com.fyralabs.Abacus.desktop.in:5
 msgid "Calculate stuff"
 msgstr "計算東西"
 
+#: data/com.fyralabs.Abacus.desktop.in:6
 msgid "Calculator"
 msgstr "計算機"
 
+#: data/com.fyralabs.Abacus.desktop.in:11
 msgid "calculator;"
 msgstr "calculator;計算機;"
 
+#: data/ui/window.ui:6
 msgid "About Abacus"
 msgstr "關於 Abacus"
 
+#: src/Scanner.vala:64
 #, c-format
 msgid "'%s' is invalid."
 msgstr "無效︰「%s」。"
 
 #. If no rule matches the character at pos, throw an error.
+#: src/Scanner.vala:131
 #, c-format
 msgid "'%s' is unknown."
 msgstr "不明︰「%s」。"
