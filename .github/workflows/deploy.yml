@@ -9,32 +9,23 @@ jobs:
       matrix:
         arch: [x86_64, aarch64]
     name: "Flatpak"
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.arch == 'aarch64' && 'ARM64' || 'ubuntu-latest' }}
     container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-40
+      image: ghcr.io/tau-os/builder:nightly
       options: --privileged
     steps:
-    - uses: actions/checkout@v2
-    - name: Install deps
-      run: |
-        dnf -y install docker
-    - name: Set up QEMU
-      id: qemu
-      uses: docker/setup-qemu-action@v1
-      with:
-        platforms: arm64
-    - uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v4
+    - uses: actions/checkout@v3
+    - uses: flatpak/flatpak-github-actions/flatpak-builder@v6.1
       name: "Build"
       with:
         bundle: abacus.flatpak
         manifest-path: com.fyralabs.Abacus.json
-        cache-key: flatpak-builder-${{ github.sha }}
+        cache-key: flatpak-builder-${{ github.sha }}-${{ matrix.arch }}
         repository-name: catalogue
-        repository-url: https://repo.tauos.co/catalogue.flatpakrepo
-        arch: ${{ matrix.arch }}
-    - uses: bilelmoussaoui/flatpak-github-actions/flat-manager@v3
+        repository-url: https://fyralabs.com/catalogue.flatpakrepo
+    - uses: flatpak/flatpak-github-actions/flat-manager@v6.1
       name: "Deploy"
       with:
         repository: stable
-        flat-manager-url: https://catalogue.tauos.co
+        flat-manager-url: https://manager.flatpak.fyralabs.com
         token: ${{ secrets.FLATPAK_REPO_TOKEN }}
