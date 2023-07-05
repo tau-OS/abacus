@@ -23,6 +23,7 @@ jobs:
         cache-key: flatpak-builder-${{ github.sha }}-${{ matrix.arch }}
         repository-name: catalogue
         repository-url: https://fyralabs.com/catalogue.flatpakrepo
+        arch: ${{ matrix.arch }}
     - uses: flatpak/flatpak-github-actions/flat-manager@v6.1
       name: "Deploy"
       with:
