@@ -16,6 +16,7 @@
         <property name="orientation">vertical</property>
         <child>
           <object class="HeAppBar">
+            <property name="show-right-title-buttons">1</property>
             <property name="show-back">0</property>
             <property name="viewtitle_widget">
               <object class="GtkDropDown" id="units_dropdown">
