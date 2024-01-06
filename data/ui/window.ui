@@ -28,6 +28,8 @@
                       <item>Temperature</item>
                       <item>Mass</item>
                       <item>Length</item>
+                      <item>Volume</item>
+                      <item>Time</item>
                     </items>
                   </object>
                 </property>
@@ -471,6 +473,23 @@
                               </object>
                             </child>
                             <child>
+                              <object class="GtkDropDown" id="time_dropdown_from">
+                                <property name="visible">false</property>
+                                <property name="model">
+                                  <object class="GtkStringList">
+                                    <items>
+                                      <item>ms</item>
+                                      <item>s</item>
+                                      <item>min</item>
+                                      <item>hour</item>
+                                      <item>day</item>
+                                      <item>weeks</item>
+                                    </items>
+                                  </object>
+                                </property>
+                              </object>
+                            </child>
+                            <child>
                               <object class="HeDisclosureButton" id="swap_button">
                                 <property name="halign">center</property>
                                 <property name="icon">object-flip-horizontal-symbolic</property>
@@ -536,6 +555,23 @@
                                       <item>L</item>
                                       <item>FlOz</item>
                                       <item>gal</item>
+                                    </items>
+                                  </object>
+                                </property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkDropDown" id="time_dropdown_to">
+                                <property name="visible">false</property>
+                                <property name="model">
+                                  <object class="GtkStringList">
+                                    <items>
+                                      <item>ms</item>
+                                      <item>s</item>
+                                      <item>min</item>
+                                      <item>hour</item>
+                                      <item>day</item>
+                                      <item>weeks</item>
                                     </items>
                                   </object>
                                 </property>

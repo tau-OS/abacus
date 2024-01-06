@@ -398,4 +398,113 @@ namespace Abacus {
             return "";
         }
     }
+
+    public class TimeConvertor : Convertor {
+        public override string convert(float convert_value) {
+            uint from = get_from();
+            uint to = get_to();
+
+            /*
+             * 0 = Milliseconds
+             * 1 = Seconds
+             * 2 = Minutes
+             * 3 = Hours
+             * 4 = Days
+             * 5 = Weeks
+             */
+
+            if (from == to) {
+                return format(convert_value);
+            }
+
+            switch (from) {
+            case 0:
+                switch (to) {
+                    case 1:
+                        return format(convert_value / THOUSAND);
+                    case 2:
+                        return format(convert_value / (THOUSAND*60));
+                    case 3:
+                        return format(convert_value / (THOUSAND*60*60));
+                    case 4:
+                        return format(convert_value / (THOUSAND*60*60*24));
+                    case 5:
+                        return format(convert_value / (THOUSAND*60*60*24*7));
+                }
+                break;
+            case 1:
+                switch (to) {
+                    case 0:
+                        return format(convert_value * THOUSAND);
+                    case 2:
+                        return format(convert_value / 60);
+                    case 3:
+                        return format(convert_value / (60*60));
+                    case 4:
+                        return format(convert_value / (60*60*24));
+                    case 5:
+                        return format(convert_value / (60*60*24*7));
+                }
+                break;
+            case 2:
+                switch (to) {
+                    case 0:
+                        return format(convert_value * THOUSAND * 60);
+                    case 1:
+                        return format(convert_value * 60);
+                    case 3:
+                        return format(convert_value / 60);
+                    case 4:
+                        return format(convert_value / (60*24));
+                    case 5:
+                        return format(convert_value / (60*24*7));
+                }
+                break;
+            case 3:
+                switch (to) {
+                    case 0:
+                        return format(convert_value * THOUSAND * 60 * 60);
+                    case 1:
+                        return format(convert_value * 60 * 60);
+                    case 2:
+                        return format(convert_value * 60);
+                    case 4:
+                        return format(convert_value / 24);
+                    case 5:
+                        return format(convert_value / (24*7));
+                }
+                break;
+            case 4:
+                switch (to) {
+                    case 0:
+                        return format(convert_value * THOUSAND * 60 * 60 * 24);
+                    case 1:
+                        return format(convert_value * 60 * 60 * 24);
+                    case 2:
+                        return format(convert_value * 60 * 24);
+                    case 3:
+                        return format(convert_value * 24);
+                    case 5:
+                        return format(convert_value / 7);
+                }
+                break;
+            case 5:
+                switch (to) {
+                    case 0:
+                        return format(convert_value * THOUSAND * 60 * 60 * 24 * 7);
+                    case 1:
+                        return format(convert_value * 60 * 60 * 24 * 7);
+                    case 2:
+                        return format(convert_value * 60 * 24 * 7);
+                    case 3:
+                        return format(convert_value * 24 * 7);
+                    case 4:
+                        return format(convert_value * 7);
+                }
+                break;
+            }
+
+            return "";
+        }
+    }
 }
