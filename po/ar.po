@@ -8,44 +8,45 @@ msgstr ""
 "Project-Id-Version: com.fyralabs.Abacus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-21 22:56-0800\n"
-"PO-Revision-Date: 2024-01-06 12:15+0000\n"
-"Last-Translator: Jules CHEVALLET <invertime.off@gmail.com>\n"
-"Language-Team: French <https://weblate.fyralabs.com/projects/tauOS/abacus/fr/"
+"PO-Revision-Date: 2023-12-26 04:14+0000\n"
+"Last-Translator: albaroty <albaroty@gmail.com>\n"
+"Language-Team: Arabic <https://weblate.fyralabs.com/projects/tauOS/abacus/ar/"
 ">\n"
-"Language: fr\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Weblate 5.0\n"
 
 #: data/com.fyralabs.Abacus.desktop.in:4
 msgid "Abacus"
-msgstr "Abaque"
+msgstr ""
 
 #: data/com.fyralabs.Abacus.desktop.in:5
 msgid "Calculate stuff"
-msgstr "Calculer des choses"
+msgstr ""
 
 #: data/com.fyralabs.Abacus.desktop.in:6
 msgid "Calculator"
-msgstr "Calculatrice"
+msgstr "آلة حاسبة"
 
 #: data/com.fyralabs.Abacus.desktop.in:11
 msgid "calculator;"
-msgstr "calculatrice;"
+msgstr ""
 
 #: data/ui/window.ui:6
 msgid "About Abacus"
-msgstr "A propos d'Abaque"
+msgstr ""
 
 #: src/Scanner.vala:64
 #, c-format
 msgid "'%s' is invalid."
-msgstr "'%s' n'est pas valide."
+msgstr ""
 
 #. If no rule matches the character at pos, throw an error.
 #: src/Scanner.vala:131
 #, c-format
 msgid "'%s' is unknown."
-msgstr "'%s' est inconnu."
+msgstr ""
