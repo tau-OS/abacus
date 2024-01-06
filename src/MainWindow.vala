@@ -58,6 +58,10 @@ public class Abacus.MainWindow : He.ApplicationWindow {
     private unowned Gtk.DropDown vol_dropdown_from;
     [GtkChild]
     private unowned Gtk.DropDown vol_dropdown_to;
+    [GtkChild]
+    private unowned Gtk.DropDown time_dropdown_from;
+    [GtkChild]
+    private unowned Gtk.DropDown time_dropdown_to;
 
     private Core.Evaluation eval;
     private int position;
@@ -159,7 +163,8 @@ public class Abacus.MainWindow : He.ApplicationWindow {
             new TempConvertor ().init (temp_dropdown_from, temp_dropdown_to),
             new MassConvertor ().init (mass_dropdown_from, mass_dropdown_to),
             new LengthConvertor ().init (len_dropdown_from, len_dropdown_to),
-            new VolumeConvertor ().init (vol_dropdown_from, vol_dropdown_to)
+            new VolumeConvertor ().init (vol_dropdown_from, vol_dropdown_to),
+            new TimeConvertor ().init (time_dropdown_from, time_dropdown_to)
         };
         convertor_index = 0;
 
@@ -175,6 +180,8 @@ public class Abacus.MainWindow : He.ApplicationWindow {
          * 0 = Temperature
          * 1 = Mass
          * 2 = Length
+         * 3 = Volume
+         * 4 = Time
          */
 
         convertor_index = units_dropdown.get_selected ();
