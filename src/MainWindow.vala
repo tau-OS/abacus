@@ -37,6 +37,8 @@ public class Abacus.MainWindow : He.ApplicationWindow {
     private unowned Gtk.Stack stack;
     [GtkChild]
     private unowned Gtk.ToggleButton converter;
+    [GtkChild]
+    private unowned Gtk.MenuButton menu;
 
     [GtkChild]
     private unowned He.DisclosureButton swap_button;
@@ -167,6 +169,8 @@ public class Abacus.MainWindow : He.ApplicationWindow {
             new TimeConvertor ().init (time_dropdown_from, time_dropdown_to)
         };
         convertor_index = 0;
+
+        menu.get_popover ().has_arrow = false;
 
         this.show ();
     }

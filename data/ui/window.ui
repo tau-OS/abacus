@@ -385,6 +385,7 @@
                         <property name="margin-bottom">6</property>
                         <child>
                           <object class="HeTextField" id="from_entry">
+                            <property name="margin-top">32</property>
                             <property name="margin-start">18</property>
                             <property name="margin-end">18</property>
                             <property name="support-text" translatable="true">From</property>
