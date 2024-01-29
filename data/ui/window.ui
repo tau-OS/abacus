@@ -388,6 +388,8 @@
                             <property name="margin-top">32</property>
                             <property name="margin-start">18</property>
                             <property name="margin-end">18</property>
+                            <property name="visibility">true</property>
+                            <property name="is-outline">true</property>
                             <property name="support-text" translatable="true">From</property>
                             <style>
                               <class name="temp-tf" />
@@ -398,6 +400,8 @@
                           <object class="HeTextField" id="to_entry">
                             <property name="margin-start">18</property>
                             <property name="margin-end">18</property>
+                            <property name="visibility">true</property>
+                            <property name="is-outline">true</property>
                             <property name="support-text" translatable="true">To</property>
                             <style>
                               <class name="temp-tf" />
