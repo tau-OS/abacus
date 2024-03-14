@@ -24,7 +24,7 @@ template AbacusMainWindow : He.ApplicationWindow {
         halign: start;
         model: 
         StringList {
-          strings ["Temperature", "Mass", _("Length"), _("Volume"), _("Time")]
+          strings [_("Temperature"), _("Mass"), _("Length"), _("Volume"), _("Time")]
         };
 
         styles [ "view-switcher" ]
@@ -410,31 +410,35 @@ template AbacusMainWindow : He.ApplicationWindow {
 
               DropDown temp_dropdown_from {
                 model: StringList {
-                  
+                  strings ["°C", "°F", "K"]
                 };
               }
 
               DropDown mass_dropdown_from {
                 visible: false;
                 model: StringList {
+                  strings ["g", "kg", "ton", "Oz", "lb"]
                 };
               }
 
               DropDown len_dropdown_from {
                 visible: false;
                 model: StringList {
+                  strings ["cm", "m", "km", "in", "ft", "yd", "mi"]
                 };
               }
 
               DropDown vol_dropdown_from {
                 visible: false;
                 model: StringList {
+                  strings ["mℓ", "ℓ", "Fl. Oz", "gal"]
                 };
               }
 
               DropDown time_dropdown_from {
                 visible: false;
                 model: StringList {
+                  strings ["ms", "s", "min", "h", "day", "year"]
                 };
               }
 
@@ -449,30 +453,35 @@ template AbacusMainWindow : He.ApplicationWindow {
 
               DropDown temp_dropdown_to {
                 model: StringList {
+                  strings ["°C", "°F", "K"]
                 };
               }
 
               DropDown mass_dropdown_to {
                 visible: false;
                 model: StringList {
+                  strings ["g", "kg", "ton", "Oz", "lb"]
                 };
               }
 
               DropDown len_dropdown_to {
                 visible: false;
                 model: StringList {
+                  strings ["cm", "m", "km", "in", "ft", "yd", "mi"]
                 };
               }
 
               DropDown vol_dropdown_to {
                 visible: false;
                 model: StringList {
+                  strings ["mℓ", "ℓ", "Fl. Oz", "gal"]
                 };
               }
 
               DropDown time_dropdown_to {
                 visible: false;
                 model: StringList {
+                  strings ["ms", "s", "min", "h", "day", "year"]
                 };
               }
             }
@@ -680,10 +689,6 @@ template AbacusMainWindow : He.ApplicationWindow {
     }
   }
 }
-
-// <item>°C</item>
-// <item>°F</item>
-// <item>K</item>
 
 // <item>g</item>
 // <item>kg</item>
