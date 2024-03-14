@@ -1,0 +1,712 @@
+using Gtk 4.0;
+using He 1;
+
+menu main_menu {
+  item {
+    label: _("About Abacus");
+    action: "win.action-about";
+  }
+}
+
+template AbacusMainWindow : He.ApplicationWindow {
+  default-width: 284;
+  default-height: 500;
+  resizable: false;
+
+  Box {
+    orientation: vertical;
+
+    He.AppBar {
+      show-right-title-buttons: true;
+      show-back: false;
+      viewtitle-widget: DropDown units_dropdown {
+        visible: false;
+        halign: start;
+        model: 
+        StringList {
+          strings ["Temperature", "Mass", _("Length"), _("Volume"), _("Time")]
+        };
+
+        styles [ "view-switcher" ]
+      };
+
+      MenuButton menu {
+        icon-name: "open-menu";
+        menu-model: main_menu;
+      }
+
+      ToggleButton converter {
+        icon-name: "globe-symbolic";
+        tooltip-text: _("Converter");
+      }
+    }
+
+    Stack stack {
+      transition-type: crossfade;
+      hexpand: true;
+
+      StackPage {
+        name: "calculator";
+        title: "Calculator";
+        icon-name: "view-list-symbolic";
+        child: WindowHandle {
+          He.OverlayButton eq {
+            icon: "equals-symbolic";
+            typeb: primary;
+
+            Box {
+              orientation: vertical;
+
+              Label result {
+                margin-top: 39;
+                margin-start: 18;
+                margin-end: 18;
+                xalign: 0;
+                sensitive: false;
+
+                styles [
+                  "calc-label",
+                  "view-title",
+                  "numeric"
+                ]
+              }
+
+              He.TextField entry {
+                styles [
+                  "calc-entry"
+                ]
+              }
+
+              Grid {
+                row-spacing: 16;
+                margin-bottom: 18;
+                valign: center;
+                halign: center;
+
+                Box {
+                  spacing: 18;
+
+                  He.FillButton ac {
+                    label: "AC";
+                    action-name: "win.action-clear";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "destructive-operator"
+                    ]
+                  }
+
+                  He.FillButton perc {
+                    label: "%";
+                    action-name: "win.action-insert";
+                    action-target: "\"%\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "operator"
+                    ]
+                  }
+
+                  He.FillButton clr {
+                    icon: "clears-symbolic";
+                    action-name: "win.action-delete";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "operator"
+                    ]
+                  }
+
+                  He.FillButton div {
+                    label: "÷";
+                    action-name: "win.action-insert";
+                    action-target: "\"/\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "operator"
+                    ]
+                  }
+
+                  layout {
+                    column: 0;
+                    row: 1;
+                  }
+                }
+
+                Box {
+                  spacing: 18;
+
+                  He.FillButton seven {
+                    label: "7";
+                    action-name: "win.action-insert";
+                    action-target: "\"7\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  He.FillButton eight {
+                    label: "8";
+                    action-name: "win.action-insert";
+                    action-target: "\"8\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  He.FillButton nine {
+                    label: "9";
+                    action-name: "win.action-insert";
+                    action-target: "\"9\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  He.FillButton mult {
+                    label: "×";
+                    action-name: "win.action-insert";
+                    action-target: "\"*\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "operator"
+                    ]
+                  }
+
+                  layout {
+                    column: 0;
+                    row: 2;
+                  }
+                }
+
+                Box {
+                  spacing: 18;
+
+                  He.FillButton four {
+                    label: "4";
+                    action-name: "win.action-insert";
+                    action-target: "\"4\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  He.FillButton five {
+                    label: "5";
+                    action-name: "win.action-insert";
+                    action-target: "\"5\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  He.FillButton six {
+                    label: "6";
+                    action-name: "win.action-insert";
+                    action-target: "\"6\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  He.FillButton min {
+                    label: "-";
+                    action-name: "win.action-insert";
+                    action-target: "\"-\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "operator"
+                    ]
+                  }
+
+                  layout {
+                    column: 0;
+                    row: 3;
+                  }
+                }
+
+                Box {
+                  spacing: 18;
+
+                  He.FillButton one {
+                    label: "1";
+                    action-name: "win.action-insert";
+                    action-target: "\"1\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  He.FillButton two {
+                    label: "2";
+                    action-name: "win.action-insert";
+                    action-target: "\"2\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  He.FillButton three {
+                    label: "3";
+                    action-name: "win.action-insert";
+                    action-target: "\"3\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  He.FillButton plus {
+                    label: "+";
+                    action-name: "win.action-insert";
+                    action-target: "\"+\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "operator"
+                    ]
+                  }
+
+                  layout {
+                    column: 0;
+                    row: 4;
+                  }
+                }
+
+                Box {
+                  spacing: 18;
+
+                  He.FillButton dzero {
+                    label: "00";
+                    action-name: "win.action-insert";
+                    action-target: "\"00\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  He.FillButton zero {
+                    label: "0";
+                    action-name: "win.action-insert";
+                    action-target: "\"0\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  He.FillButton dot {
+                    label: ".";
+                    action-name: "win.action-insert";
+                    action-target: "\".\"";
+
+                    styles [
+                      "calc-button",
+                      "circle-radius",
+                      "numeric"
+                    ]
+                  }
+
+                  Fixed {
+                  }
+
+                  layout {
+                    column: 0;
+                    row: 5;
+                  }
+                }
+              }
+            }
+          }
+        };
+      }
+
+      StackPage {
+        name: "converter";
+        title: "Converter";
+        icon-name: "view-list-symbolic";
+        child: 
+        He.OverlayButton eq2 {
+          icon: "equals-symbolic";
+          typeb: primary;
+
+          Box {
+            orientation: vertical;
+            spacing: 6;
+            margin-bottom: 6;
+
+            He.TextField from_entry {
+              margin-top: 32;
+              margin-start: 18;
+              margin-end: 18;
+              visibility: true;
+              is-outline: true;
+              support-text: _("From");
+
+              styles [
+                "temp-tf",
+              ]
+            }
+
+            He.TextField to_entry {
+              margin-start: 18;
+              margin-end: 18;
+              visibility: true;
+              is-outline: true;
+              support-text: _("To");
+
+              styles [
+                "temp-tf",
+              ]
+            }
+
+            Box {
+              spacing: 6;
+              homogeneous: true;
+              margin-start: 18;
+              margin-end: 18;
+              margin-bottom: 8;
+
+              DropDown temp_dropdown_from {
+                model: StringList {
+                  
+                };
+              }
+
+              DropDown mass_dropdown_from {
+                visible: false;
+                model: StringList {
+                };
+              }
+
+              DropDown len_dropdown_from {
+                visible: false;
+                model: StringList {
+                };
+              }
+
+              DropDown vol_dropdown_from {
+                visible: false;
+                model: StringList {
+                };
+              }
+
+              DropDown time_dropdown_from {
+                visible: false;
+                model: StringList {
+                };
+              }
+
+              He.DisclosureButton swap_button {
+                halign: center;
+                icon: "object-flip-horizontal-symbolic";
+
+                styles [
+                  "outline-button",
+                ]
+              }
+
+              DropDown temp_dropdown_to {
+                model: StringList {
+                };
+              }
+
+              DropDown mass_dropdown_to {
+                visible: false;
+                model: StringList {
+                };
+              }
+
+              DropDown len_dropdown_to {
+                visible: false;
+                model: StringList {
+                };
+              }
+
+              DropDown vol_dropdown_to {
+                visible: false;
+                model: StringList {
+                };
+              }
+
+              DropDown time_dropdown_to {
+                visible: false;
+                model: StringList {
+                };
+              }
+            }
+
+            Grid {
+              row-spacing: 16;
+              column-homogeneous: true;
+
+              Box {
+                spacing: 16;
+                homogeneous: true;
+                margin-start: 18;
+                margin-end: 18;
+
+                He.FillButton ac2 {
+                  label: "AC";
+                  action-name: "win.action-clear-converter";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "destructive-operator"
+                  ]
+                }
+
+                He.FillButton seven2 {
+                  label: "7";
+                  action-name: "win.action-insert-converter";
+                  action-target: "\"7\"";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "numeric"
+                  ]
+                }
+
+                He.FillButton eight2 {
+                  label: "8";
+                  action-name: "win.action-insert-converter";
+                  action-target: "\"8\"";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "numeric"
+                  ]
+                }
+
+                He.FillButton nine2 {
+                  label: "9";
+                  action-name: "win.action-insert-converter";
+                  action-target: "\"9\"";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "numeric"
+                  ]
+                }
+
+                layout {
+                  column: 0;
+                  row: 2;
+                }
+              }
+
+              Box {
+                spacing: 16;
+                homogeneous: true;
+                margin-start: 18;
+                margin-end: 18;
+
+                He.FillButton clr2 {
+                  icon: "clears-symbolic";
+                  action-name: "win.action-delete-converter";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "operator"
+                  ]
+                }
+
+                He.FillButton four2 {
+                  label: "4";
+                  action-name: "win.action-insert-converter";
+                  action-target: "\"4\"";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "numeric"
+                  ]
+                }
+
+                He.FillButton five2 {
+                  label: "5";
+                  action-name: "win.action-insert-converter";
+                  action-target: "\"5\"";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "numeric"
+                  ]
+                }
+
+                He.FillButton six2 {
+                  label: "6";
+                  action-name: "win.action-insert-converter";
+                  action-target: "\"6\"";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "numeric"
+                  ]
+                }
+
+                layout {
+                  column: 0;
+                  row: 3;
+                }
+              }
+
+              Box {
+                spacing: 16;
+                homogeneous: true;
+                margin-start: 18;
+                margin-end: 18;
+
+                He.FillButton zero2 {
+                  label: "0";
+                  action-name: "win.action-insert-converter";
+                  action-target: "\"0\"";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "numeric"
+                  ]
+                }
+
+                He.FillButton one2 {
+                  label: "1";
+                  action-name: "win.action-insert-converter";
+                  action-target: "\"1\"";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "numeric"
+                  ]
+                }
+
+                He.FillButton two2 {
+                  label: "2";
+                  action-name: "win.action-insert-converter";
+                  action-target: "\"2\"";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "numeric"
+                  ]
+                }
+
+                He.FillButton three2 {
+                  label: "3";
+                  action-name: "win.action-insert-converter";
+                  action-target: "\"3\"";
+
+                  styles [
+                    "calc-button",
+                    "circle-radius",
+                    "numeric"
+                  ]
+                }
+
+                layout {
+                  column: 0;
+                  row: 4;
+                }
+              }
+
+              Box {
+                spacing: 16;
+                homogeneous: true;
+                margin-start: 18;
+                margin-end: 18;
+
+                Fixed {
+                }
+
+                layout {
+                  column: 0;
+                  row: 4;
+                }
+              }
+            }
+          }
+        };
+      }
+    }
+  }
+}
+
+// <item>°C</item>
+// <item>°F</item>
+// <item>K</item>
+
+// <item>g</item>
+// <item>kg</item>
+// <item>ton</item>
+// <item>Oz</item>
+// <item>lb</item>
+
+// <item>cm</item>
+// <item>m</item>
+// <item>km</item>
+// <item>in</item>
+// <item>ft</item>
+// <item>yd</item>
+// <item>mi</item>
+
+// <item>mL</item>
+// <item>L</item>
+// <item>FlOz</item>
+// <item>gal</item>
+
+// <item>ms</item>
+// <item>s</item>
+// <item>min</item>
+// <item>hour</item>
+// <item>day</item>
+// <item>weeks</item>

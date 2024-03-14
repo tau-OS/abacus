@@ -1,10 +1,10 @@
 .calc-button {
   background: linear-gradient(0deg, alpha(@accent_bg_color, 0.05), alpha(@accent_bg_color, 0.05)), image(@view_bg_color);
   color: @accent_color;
-  border-radius: 999px;
   font-size: 18px;
   font-weight: 600;
-  min-width: 24px;
+  min-width: 30px;
+  min-height: 30px;
   padding: 16px;
 }
 
@@ -42,12 +42,16 @@
   background: linear-gradient(0deg, alpha(@success_bg_color, 0.12), alpha(@success_bg_color, 0.12)), image(alpha(@success_bg_color, 0.11));
 }
 
-.calc-entry {
-  border-radius: 2px;
+.calc-entry .text-field {
   background: none;
-  padding: 8px 12px;
   box-shadow: none;
   outline-color: transparent;
+}
+.calc-entry text {
+  padding: 8px 0;
+  font-size: 40px;
+  font-weight: 300;
+  font-feature-settings: "tnum";
 }
 
 .calc-label {
