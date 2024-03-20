@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: com.fyralabs.Abacus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-21 22:56-0800\n"
-"PO-Revision-Date: 2023-12-04 21:43+0000\n"
-"Last-Translator: Pan <panpantepan@skiff.com>\n"
+"PO-Revision-Date: 2024-03-21 23:20+0000\n"
+"Last-Translator: vadik317 <slavboris1255@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.fyralabs.com/projects/tauOS/abacus/"
 "es/>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0\n"
+"X-Generator: Weblate 5.4.2\n"
 
 #: data/com.fyralabs.Abacus.desktop.in:4
 msgid "Abacus"
@@ -33,7 +33,7 @@ msgstr "Calculadora"
 
 #: data/com.fyralabs.Abacus.desktop.in:11
 msgid "calculator;"
-msgstr ""
+msgstr "calculadora;"
 
 #: data/ui/window.ui:6
 msgid "About Abacus"
