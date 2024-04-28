@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.fyralabs.Abacus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-21 22:56-0800\n"
-"PO-Revision-Date: 2024-03-21 23:20+0000\n"
+"PO-Revision-Date: 2024-04-28 20:49+0000\n"
 "Last-Translator: vadik317 <slavboris1255@gmail.com>\n"
 "Language-Team: Russian <https://weblate.fyralabs.com/projects/tauOS/abacus/"
 "ru/>\n"
@@ -30,15 +30,15 @@ msgstr "Вычислить вещи"
 
 #: data/com.fyralabs.Abacus.desktop.in:6
 msgid "Calculator"
-msgstr "Калкулятор"
+msgstr "Калькулятор"
 
 #: data/com.fyralabs.Abacus.desktop.in:11
 msgid "calculator;"
-msgstr "калкулятор;"
+msgstr "калькулятор;"
 
 #: data/ui/window.ui:6
 msgid "About Abacus"
-msgstr "Насчет Калкулятор"
+msgstr "Об Abacus"
 
 #: src/Scanner.vala:64
 #, c-format
