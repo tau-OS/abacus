@@ -8,9 +8,9 @@ menu main_menu {
   }
 }
 
-template AbacusMainWindow : He.ApplicationWindow {
-  default-width: 284;
-  default-height: 500;
+template $AbacusMainWindow : He.ApplicationWindow {
+  default-width: 360;
+  default-height: 294;
   resizable: false;
 
   Box {
@@ -30,11 +30,13 @@ template AbacusMainWindow : He.ApplicationWindow {
         styles [ "view-switcher" ]
       };
 
+      [titlebar-menu]
       MenuButton menu {
         icon-name: "open-menu";
         menu-model: main_menu;
       }
 
+      [titlebar-toggle]
       ToggleButton converter {
         icon-name: "globe-symbolic";
         tooltip-text: _("Converter");
@@ -58,7 +60,7 @@ template AbacusMainWindow : He.ApplicationWindow {
               orientation: vertical;
 
               Label result {
-                margin-top: 39;
+                margin-top: 10;
                 margin-start: 18;
                 margin-end: 18;
                 xalign: 0;
@@ -80,11 +82,13 @@ template AbacusMainWindow : He.ApplicationWindow {
               Grid {
                 row-spacing: 16;
                 margin-bottom: 18;
-                valign: center;
-                halign: center;
+                margin-start: 18;
+                margin-end: 18;
+                column-homogeneous: true;
 
                 Box {
-                  spacing: 18;
+                  homogeneous: true;
+                  spacing: 12;
 
                   He.FillButton ac {
                     label: "AC";
@@ -139,7 +143,8 @@ template AbacusMainWindow : He.ApplicationWindow {
                 }
 
                 Box {
-                  spacing: 18;
+                  homogeneous: true;
+                  spacing: 12;
 
                   He.FillButton seven {
                     label: "7";
@@ -196,7 +201,8 @@ template AbacusMainWindow : He.ApplicationWindow {
                 }
 
                 Box {
-                  spacing: 18;
+                  homogeneous: true;
+                  spacing: 12;
 
                   He.FillButton four {
                     label: "4";
@@ -253,7 +259,8 @@ template AbacusMainWindow : He.ApplicationWindow {
                 }
 
                 Box {
-                  spacing: 18;
+                  homogeneous: true;
+                  spacing: 12;
 
                   He.FillButton one {
                     label: "1";
@@ -310,7 +317,7 @@ template AbacusMainWindow : He.ApplicationWindow {
                 }
 
                 Box {
-                  spacing: 18;
+                  spacing: 12;
 
                   He.FillButton dzero {
                     label: "00";
@@ -365,16 +372,17 @@ template AbacusMainWindow : He.ApplicationWindow {
         icon-name: "view-list-symbolic";
         child: 
         He.OverlayButton eq2 {
-          icon: "equals-symbolic";
+          icon: "object-flip-horizontal-symbolic";
           typeb: primary;
+          label: _("Convert");
+          alignment: center;
 
           Box {
             orientation: vertical;
             spacing: 6;
-            margin-bottom: 6;
 
             He.TextField from_entry {
-              margin-top: 32;
+              margin-top: 6;
               margin-start: 18;
               margin-end: 18;
               visibility: true;
@@ -484,14 +492,14 @@ template AbacusMainWindow : He.ApplicationWindow {
             }
 
             Grid {
-              row-spacing: 16;
+              row-spacing: 12;
+              margin-start: 18;
+              margin-end: 18;
               column-homogeneous: true;
 
               Box {
-                spacing: 16;
                 homogeneous: true;
-                margin-start: 18;
-                margin-end: 18;
+                spacing: 12;
 
                 He.FillButton ac2 {
                   label: "AC";
@@ -547,10 +555,8 @@ template AbacusMainWindow : He.ApplicationWindow {
               }
 
               Box {
-                spacing: 16;
                 homogeneous: true;
-                margin-start: 18;
-                margin-end: 18;
+                spacing: 12;
 
                 He.FillButton clr2 {
                   icon: "clears-symbolic";
@@ -606,10 +612,8 @@ template AbacusMainWindow : He.ApplicationWindow {
               }
 
               Box {
-                spacing: 16;
                 homogeneous: true;
-                margin-start: 18;
-                margin-end: 18;
+                spacing: 12;
 
                 He.FillButton zero2 {
                   label: "0";

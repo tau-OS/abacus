@@ -154,6 +154,7 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         });
 
         swap_button.clicked.connect (swap);
+        swap_button.remove_css_class ("image-button");
         units_dropdown.notify["selected"].connect (change_units);
 
         SimpleAction swap_action = new SimpleAction ("swap", null);
