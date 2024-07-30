@@ -41,7 +41,7 @@ public class Abacus.MainWindow : He.ApplicationWindow {
     private unowned Gtk.MenuButton menu;
 
     [GtkChild]
-    private unowned He.DisclosureButton swap_button;
+    private unowned He.Button swap_button;
     [GtkChild]
     private unowned Gtk.DropDown units_dropdown;
     [GtkChild]
@@ -154,7 +154,6 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         });
 
         swap_button.clicked.connect (swap);
-        swap_button.remove_css_class ("image-button");
         units_dropdown.notify["selected"].connect (change_units);
 
         SimpleAction swap_action = new SimpleAction ("swap", null);

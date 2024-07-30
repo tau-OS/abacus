@@ -90,8 +90,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   homogeneous: true;
                   spacing: 12;
 
-                  He.FillButton ac {
+                  He.Button ac {
                     label: "AC";
+                    is-fill: true;
                     action-name: "win.action-clear";
 
                     styles [
@@ -101,8 +102,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton perc {
+                  He.Button perc {
                     label: "%";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"%\"";
 
@@ -113,8 +115,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton clr {
+                  He.Button clr {
                     icon: "clears-symbolic";
+                    is-fill: true;
                     action-name: "win.action-delete";
 
                     styles [
@@ -124,8 +127,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton div {
+                  He.Button div {
                     label: "÷";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"/\"";
 
@@ -146,8 +150,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   homogeneous: true;
                   spacing: 12;
 
-                  He.FillButton seven {
+                  He.Button seven {
                     label: "7";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"7\"";
 
@@ -158,8 +163,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton eight {
+                  He.Button eight {
                     label: "8";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"8\"";
 
@@ -170,8 +176,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton nine {
+                  He.Button nine {
                     label: "9";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"9\"";
 
@@ -182,8 +189,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton mult {
+                  He.Button mult {
                     label: "×";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"*\"";
 
@@ -204,8 +212,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   homogeneous: true;
                   spacing: 12;
 
-                  He.FillButton four {
+                  He.Button four {
                     label: "4";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"4\"";
 
@@ -216,8 +225,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton five {
+                  He.Button five {
                     label: "5";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"5\"";
 
@@ -228,8 +238,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton six {
+                  He.Button six {
                     label: "6";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"6\"";
 
@@ -240,8 +251,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton min {
+                  He.Button min {
                     label: "-";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"-\"";
 
@@ -262,8 +274,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   homogeneous: true;
                   spacing: 12;
 
-                  He.FillButton one {
+                  He.Button one {
                     label: "1";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"1\"";
 
@@ -274,8 +287,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton two {
+                  He.Button two {
                     label: "2";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"2\"";
 
@@ -286,8 +300,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton three {
+                  He.Button three {
                     label: "3";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"3\"";
 
@@ -298,8 +313,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton plus {
+                  He.Button plus {
                     label: "+";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"+\"";
 
@@ -319,8 +335,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                 Box {
                   spacing: 12;
 
-                  He.FillButton dzero {
+                  He.Button dzero {
                     label: "00";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"00\"";
 
@@ -331,8 +348,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton zero {
+                  He.Button zero {
                     label: "0";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\"0\"";
 
@@ -343,8 +361,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                     ]
                   }
 
-                  He.FillButton dot {
+                  He.Button dot {
                     label: ".";
+                    is-fill: true;
                     action-name: "win.action-insert";
                     action-target: "\".\"";
 
@@ -447,8 +466,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                 };
               }
 
-              He.DisclosureButton swap_button {
+              He.Button swap_button {
                 halign: center;
+                is-disclosure: true;
                 icon: "object-flip-horizontal-symbolic";
 
                 styles [
@@ -501,8 +521,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                 homogeneous: true;
                 spacing: 12;
 
-                He.FillButton ac2 {
+                He.Button ac2 {
                   label: "AC";
+                  is-fill: true;
                   action-name: "win.action-clear-converter";
 
                   styles [
@@ -512,8 +533,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   ]
                 }
 
-                He.FillButton seven2 {
+                He.Button seven2 {
                   label: "7";
+                  is-fill: true;
                   action-name: "win.action-insert-converter";
                   action-target: "\"7\"";
 
@@ -524,8 +546,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   ]
                 }
 
-                He.FillButton eight2 {
+                He.Button eight2 {
                   label: "8";
+                  is-fill: true;
                   action-name: "win.action-insert-converter";
                   action-target: "\"8\"";
 
@@ -536,8 +559,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   ]
                 }
 
-                He.FillButton nine2 {
+                He.Button nine2 {
                   label: "9";
+                  is-fill: true;
                   action-name: "win.action-insert-converter";
                   action-target: "\"9\"";
 
@@ -558,8 +582,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                 homogeneous: true;
                 spacing: 12;
 
-                He.FillButton clr2 {
+                He.Button clr2 {
                   icon: "clears-symbolic";
+                  is-fill: true;
                   action-name: "win.action-delete-converter";
 
                   styles [
@@ -569,8 +594,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   ]
                 }
 
-                He.FillButton four2 {
+                He.Button four2 {
                   label: "4";
+                  is-fill: true;
                   action-name: "win.action-insert-converter";
                   action-target: "\"4\"";
 
@@ -581,8 +607,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   ]
                 }
 
-                He.FillButton five2 {
+                He.Button five2 {
                   label: "5";
+                  is-fill: true;
                   action-name: "win.action-insert-converter";
                   action-target: "\"5\"";
 
@@ -593,8 +620,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   ]
                 }
 
-                He.FillButton six2 {
+                He.Button six2 {
                   label: "6";
+                  is-fill: true;
                   action-name: "win.action-insert-converter";
                   action-target: "\"6\"";
 
@@ -615,8 +643,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                 homogeneous: true;
                 spacing: 12;
 
-                He.FillButton zero2 {
+                He.Button zero2 {
                   label: "0";
+                  is-fill: true;
                   action-name: "win.action-insert-converter";
                   action-target: "\"0\"";
 
@@ -627,8 +656,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   ]
                 }
 
-                He.FillButton one2 {
+                He.Button one2 {
                   label: "1";
+                  is-fill: true;
                   action-name: "win.action-insert-converter";
                   action-target: "\"1\"";
 
@@ -639,8 +669,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   ]
                 }
 
-                He.FillButton two2 {
+                He.Button two2 {
                   label: "2";
+                  is-fill: true;
                   action-name: "win.action-insert-converter";
                   action-target: "\"2\"";
 
@@ -651,8 +682,9 @@ template $AbacusMainWindow : He.ApplicationWindow {
                   ]
                 }
 
-                He.FillButton three2 {
+                He.Button three2 {
                   label: "3";
+                  is-fill: true;
                   action-name: "win.action-insert-converter";
                   action-target: "\"3\"";
 
