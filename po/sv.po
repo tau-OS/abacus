@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: com.fyralabs.Abacus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-21 22:56-0800\n"
-"PO-Revision-Date: 2023-05-27 22:09+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2024-07-30 15:43+0000\n"
+"Last-Translator: Kristoffer Grundström <swedishsailfishosuser@tutanota.com>\n"
 "Language-Team: Swedish <https://weblate.fyralabs.com/projects/tauOS/abacus/"
 "sv/>\n"
 "Language: sv\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/com.fyralabs.Abacus.desktop.in:4
 msgid "Abacus"
-msgstr ""
+msgstr "Abacus"
 
 #: data/com.fyralabs.Abacus.desktop.in:5
 msgid "Calculate stuff"
-msgstr ""
+msgstr "Beräkna saker"
 
 #: data/com.fyralabs.Abacus.desktop.in:6
 msgid "Calculator"
-msgstr ""
+msgstr "Miniräknare"
 
 #: data/com.fyralabs.Abacus.desktop.in:11
 msgid "calculator;"
-msgstr ""
+msgstr "miniräknare;"
 
 #: data/ui/window.ui:6
 msgid "About Abacus"
-msgstr ""
+msgstr "Om Abacus"
 
 #: src/Scanner.vala:64
 #, c-format
