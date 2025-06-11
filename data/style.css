@@ -1,45 +1,10 @@
-.calc-button {
-  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.05), alpha(@accent_bg_color, 0.05)), image(@view_bg_color);
-  color: @accent_color;
-  font-size: 18px;
-  font-weight: 600;
-  min-width: 30px;
-  min-height: 30px;
-  padding: 16px;
-}
-
-.calc-button:hover {
-  background: linear-gradient(0deg, alpha(@view_fg_color, 0.08), alpha(@view_fg_color, 0.08)), image(alpha(@accent_bg_color, 0.05));
-}
-
-.calc-button:active {
-  background: linear-gradient(0deg, alpha(@view_fg_color, 0.12), alpha(@view_fg_color, 0.12)), image(alpha(@accent_bg_color, 0.05));
+.control-padding {
+  padding: 18px;
 }
 
 .operator {
-  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.11), alpha(@accent_bg_color, 0.11)), image(@view_bg_color);
-  color: @accent_color;
-}
-
-.operator:hover {
-  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.08), alpha(@accent_bg_color, 0.08)), image(alpha(@accent_bg_color, 0.11));
-}
-
-.operator:active {
-  background: linear-gradient(0deg, alpha(@accent_bg_color, 0.12), alpha(@accent_bg_color, 0.12)), image(alpha(@accent_bg_color, 0.11));
-}
-
-.destructive-operator {
-  background: linear-gradient(0deg, alpha(@success_bg_color, 0.11), alpha(@success_bg_color, 0.11)), image(@view_bg_color);
-  color: @success_color;
-}
-
-.destructive-operator:hover {
-  background: linear-gradient(0deg, alpha(@success_bg_color, 0.08), alpha(@success_bg_color, 0.08)), image(alpha(@success_bg_color, 0.11));
-}
-
-.destructive-operator:active {
-  background: linear-gradient(0deg, alpha(@success_bg_color, 0.12), alpha(@success_bg_color, 0.12)), image(alpha(@success_bg_color, 0.11));
+  background: @surface_container_highest_bg_color;
+  color: @surface_fg_color;
 }
 
 .calc-entry .text-field {
@@ -48,10 +13,8 @@
   outline-color: transparent;
 }
 .calc-entry text {
-  padding: 8px 0;
-  font-size: 40px;
-  font-weight: 300;
-  font-feature-settings: "tnum";
+  font-size: 48px;
+  font-weight: 500;
 }
 
 .calc-label {
@@ -60,11 +23,44 @@
   outline-color: transparent;
 }
 
-.temp-tf {
-  font-size: 40px;
-  font-weight: 300;
+.temp-tf text {
+  font-size: 48px;
+  font-weight: 500;
 }
 
 .error-label {
   color: @error_color;
+}
+
+.dropdown .toggle {
+  border-radius: 8px;
+  min-height: 53px;
+  padding: 0 8px;
+  margin: 0;
+}
+.dropdown label, .dropdown arrow {
+  padding: 0;
+  margin: 0;
+}
+
+.chooser {
+  padding: 0;
+  background: transparent;
+  margin: 0;
+}
+.chooser .toggle {
+  padding: 0;
+  background: transparent;
+  margin: 0;
+}
+.chooser stack label {
+  font-size: 32px;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+}
+.chooser label, .chooser arrow {
+  color: @surface_fg_color;
+  padding: 0;
+  margin: 0;
 }

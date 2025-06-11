@@ -11,7 +11,6 @@ menu main_menu {
 template $AbacusMainWindow : He.ApplicationWindow {
   default-width: 360;
   default-height: 294;
-  resizable: false;
 
   Box {
     orientation: vertical;
@@ -27,7 +26,7 @@ template $AbacusMainWindow : He.ApplicationWindow {
           strings [_("Temperature"), _("Mass"), _("Length"), _("Volume"), _("Time")]
         };
 
-        styles [ "view-switcher" ]
+        styles [ "chooser" ]
       };
 
       [titlebar-menu]
@@ -52,10 +51,6 @@ template $AbacusMainWindow : He.ApplicationWindow {
         title: "Calculator";
         icon-name: "view-list-symbolic";
         child: WindowHandle {
-          He.OverlayButton eq {
-            icon: "equals-symbolic";
-            typeb: primary;
-
             Box {
               orientation: vertical;
 
@@ -69,506 +64,112 @@ template $AbacusMainWindow : He.ApplicationWindow {
                 styles [
                   "calc-label",
                   "view-title",
-                  "numeric"
-                ]
-              }
-
-              He.TextField entry {
-                styles [
-                  "calc-entry"
-                ]
-              }
-
-              Grid {
-                row-spacing: 16;
-                margin-bottom: 18;
-                margin-start: 18;
-                margin-end: 18;
-                column-homogeneous: true;
-
-                Box {
-                  homogeneous: true;
-                  spacing: 12;
-
-                  He.Button ac {
-                    label: "AC";
-                    is-fill: true;
-                    action-name: "win.action-clear";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "destructive-operator"
-                    ]
-                  }
-
-                  He.Button perc {
-                    label: "%";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"%\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "operator"
-                    ]
-                  }
-
-                  He.Button clr {
-                    icon: "clears-symbolic";
-                    is-fill: true;
-                    action-name: "win.action-delete";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "operator"
-                    ]
-                  }
-
-                  He.Button div {
-                    label: "÷";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"/\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "operator"
-                    ]
-                  }
-
-                  layout {
-                    column: 0;
-                    row: 1;
-                  }
-                }
-
-                Box {
-                  homogeneous: true;
-                  spacing: 12;
-
-                  He.Button seven {
-                    label: "7";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"7\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  He.Button eight {
-                    label: "8";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"8\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  He.Button nine {
-                    label: "9";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"9\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  He.Button mult {
-                    label: "×";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"*\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "operator"
-                    ]
-                  }
-
-                  layout {
-                    column: 0;
-                    row: 2;
-                  }
-                }
-
-                Box {
-                  homogeneous: true;
-                  spacing: 12;
-
-                  He.Button four {
-                    label: "4";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"4\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  He.Button five {
-                    label: "5";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"5\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  He.Button six {
-                    label: "6";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"6\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  He.Button min {
-                    label: "-";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"-\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "operator"
-                    ]
-                  }
-
-                  layout {
-                    column: 0;
-                    row: 3;
-                  }
-                }
-
-                Box {
-                  homogeneous: true;
-                  spacing: 12;
-
-                  He.Button one {
-                    label: "1";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"1\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  He.Button two {
-                    label: "2";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"2\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  He.Button three {
-                    label: "3";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"3\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  He.Button plus {
-                    label: "+";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"+\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "operator"
-                    ]
-                  }
-
-                  layout {
-                    column: 0;
-                    row: 4;
-                  }
-                }
-
-                Box {
-                  spacing: 12;
-
-                  He.Button dzero {
-                    label: "00";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"00\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  He.Button zero {
-                    label: "0";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\"0\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  He.Button dot {
-                    label: ".";
-                    is-fill: true;
-                    action-name: "win.action-insert";
-                    action-target: "\".\"";
-
-                    styles [
-                      "calc-button",
-                      "circle-radius",
-                      "numeric"
-                    ]
-                  }
-
-                  layout {
-                    column: 0;
-                    row: 5;
-                  }
-                }
-              }
-            }
-          }
-        };
-      }
-
-      StackPage {
-        name: "converter";
-        title: "Converter";
-        icon-name: "view-list-symbolic";
-        child: 
-        He.OverlayButton eq2 {
-          icon: "object-flip-horizontal-symbolic";
-          typeb: primary;
-          label: _("Convert");
-          alignment: center;
-
-          Box {
-            orientation: vertical;
-            spacing: 6;
-
-            He.TextField from_entry {
-              margin-top: 6;
-              margin-start: 18;
-              margin-end: 18;
-              visibility: true;
-              is-outline: true;
-              support-text: _("From");
-
-              styles [
-                "temp-tf",
+                "numeric"
               ]
             }
 
-            He.TextField to_entry {
-              margin-start: 18;
-              margin-end: 18;
-              visibility: true;
-              is-outline: true;
-              support-text: _("To");
-
+            He.TextField entry {
               styles [
-                "temp-tf",
+                "calc-entry"
               ]
-            }
-
-            Box {
-              spacing: 6;
-              homogeneous: true;
-              margin-start: 18;
-              margin-end: 18;
-              margin-bottom: 8;
-
-              DropDown temp_dropdown_from {
-                model: StringList {
-                  strings ["°C", "°F", "K"]
-                };
-              }
-
-              DropDown mass_dropdown_from {
-                visible: false;
-                model: StringList {
-                  strings ["g", "kg", "ton", "Oz", "lb"]
-                };
-              }
-
-              DropDown len_dropdown_from {
-                visible: false;
-                model: StringList {
-                  strings ["cm", "m", "km", "in", "ft", "yd", "mi"]
-                };
-              }
-
-              DropDown vol_dropdown_from {
-                visible: false;
-                model: StringList {
-                  strings ["mℓ", "ℓ", "Fl. Oz", "gal"]
-                };
-              }
-
-              DropDown time_dropdown_from {
-                visible: false;
-                model: StringList {
-                  strings ["ms", "s", "min", "h", "day", "year"]
-                };
-              }
-
-              He.Button swap_button {
-                halign: center;
-                is-disclosure: true;
-                icon: "object-flip-horizontal-symbolic";
-
-                styles [
-                  "outline-button",
-                ]
-              }
-
-              DropDown temp_dropdown_to {
-                model: StringList {
-                  strings ["°C", "°F", "K"]
-                };
-              }
-
-              DropDown mass_dropdown_to {
-                visible: false;
-                model: StringList {
-                  strings ["g", "kg", "ton", "Oz", "lb"]
-                };
-              }
-
-              DropDown len_dropdown_to {
-                visible: false;
-                model: StringList {
-                  strings ["cm", "m", "km", "in", "ft", "yd", "mi"]
-                };
-              }
-
-              DropDown vol_dropdown_to {
-                visible: false;
-                model: StringList {
-                  strings ["mℓ", "ℓ", "Fl. Oz", "gal"]
-                };
-              }
-
-              DropDown time_dropdown_to {
-                visible: false;
-                model: StringList {
-                  strings ["ms", "s", "min", "h", "day", "year"]
-                };
-              }
             }
 
             Grid {
-              row-spacing: 12;
-              margin-start: 18;
-              margin-end: 18;
+              row-spacing: 20;
               column-homogeneous: true;
+              styles [
+                    "surface-container-lowest-bg-color",
+                    "x-large-radius",
+                    "control-padding"
+              ]
 
               Box {
                 homogeneous: true;
                 spacing: 12;
 
-                He.Button ac2 {
+                He.Button ac {
                   label: "AC";
-                  is-fill: true;
-                  action-name: "win.action-clear-converter";
+                  is-tint: true;
+                  color: tertiary;
+                  action-name: "win.action-clear";
+                }
+
+                He.Button perc {
+                  label: "%";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
+                  action-target: "\"%\"";
 
                   styles [
-                    "calc-button",
-                    "circle-radius",
-                    "destructive-operator"
+                    "operator"
                   ]
                 }
 
-                He.Button seven2 {
+                He.Button clr {
+                  icon: "clears-symbolic";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-delete";
+
+                  styles [
+                    "operator"
+                  ]
+                }
+
+                He.Button div {
+                  label: "÷";
+                  is-tint: true;
+                  action-name: "win.action-insert";
+                  action-target: "\"/\"";
+
+                  styles [
+                    "operator"
+                  ]
+                }
+
+                layout {
+                  column: 0;
+                  row: 1;
+                }
+              }
+
+              Box {
+                homogeneous: true;
+                spacing: 12;
+
+                He.Button seven {
                   label: "7";
-                  is-fill: true;
-                  action-name: "win.action-insert-converter";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
                   action-target: "\"7\"";
-
-                  styles [
-                    "calc-button",
-                    "circle-radius",
-                    "numeric"
-                  ]
                 }
 
-                He.Button eight2 {
+                He.Button eight {
                   label: "8";
-                  is-fill: true;
-                  action-name: "win.action-insert-converter";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
                   action-target: "\"8\"";
-
-                  styles [
-                    "calc-button",
-                    "circle-radius",
-                    "numeric"
-                  ]
                 }
 
-                He.Button nine2 {
+                He.Button nine {
                   label: "9";
-                  is-fill: true;
-                  action-name: "win.action-insert-converter";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
                   action-target: "\"9\"";
+                }
+
+                He.Button mult {
+                  label: "×";
+                  is-tint: true;
+                  action-name: "win.action-insert";
+                  action-target: "\"*\"";
 
                   styles [
-                    "calc-button",
-                    "circle-radius",
-                    "numeric"
+                    "operator"
                   ]
                 }
 
@@ -582,54 +183,39 @@ template $AbacusMainWindow : He.ApplicationWindow {
                 homogeneous: true;
                 spacing: 12;
 
-                He.Button clr2 {
-                  icon: "clears-symbolic";
-                  is-fill: true;
-                  action-name: "win.action-delete-converter";
-
-                  styles [
-                    "calc-button",
-                    "circle-radius",
-                    "operator"
-                  ]
-                }
-
-                He.Button four2 {
+                He.Button four {
                   label: "4";
-                  is-fill: true;
-                  action-name: "win.action-insert-converter";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
                   action-target: "\"4\"";
-
-                  styles [
-                    "calc-button",
-                    "circle-radius",
-                    "numeric"
-                  ]
                 }
 
-                He.Button five2 {
+                He.Button five {
                   label: "5";
-                  is-fill: true;
-                  action-name: "win.action-insert-converter";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
                   action-target: "\"5\"";
-
-                  styles [
-                    "calc-button",
-                    "circle-radius",
-                    "numeric"
-                  ]
                 }
 
-                He.Button six2 {
+                He.Button six {
                   label: "6";
-                  is-fill: true;
-                  action-name: "win.action-insert-converter";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
                   action-target: "\"6\"";
+                }
+
+                He.Button min {
+                  label: "-";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
+                  action-target: "\"-\"";
 
                   styles [
-                    "calc-button",
-                    "circle-radius",
-                    "numeric"
+                    "operator"
                   ]
                 }
 
@@ -643,61 +229,435 @@ template $AbacusMainWindow : He.ApplicationWindow {
                 homogeneous: true;
                 spacing: 12;
 
-                He.Button zero2 {
-                  label: "0";
-                  is-fill: true;
-                  action-name: "win.action-insert-converter";
-                  action-target: "\"0\"";
-
-                  styles [
-                    "calc-button",
-                    "circle-radius",
-                    "numeric"
-                  ]
-                }
-
-                He.Button one2 {
+                He.Button one {
                   label: "1";
-                  is-fill: true;
-                  action-name: "win.action-insert-converter";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
                   action-target: "\"1\"";
-
-                  styles [
-                    "calc-button",
-                    "circle-radius",
-                    "numeric"
-                  ]
                 }
 
-                He.Button two2 {
+                He.Button two {
                   label: "2";
-                  is-fill: true;
-                  action-name: "win.action-insert-converter";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
                   action-target: "\"2\"";
-
-                  styles [
-                    "calc-button",
-                    "circle-radius",
-                    "numeric"
-                  ]
                 }
 
-                He.Button three2 {
+                He.Button three {
                   label: "3";
-                  is-fill: true;
-                  action-name: "win.action-insert-converter";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
                   action-target: "\"3\"";
+                }
+
+                He.Button plus {
+                  label: "+";
+                  is-tint: true;
+                  action-name: "win.action-insert";
+                  action-target: "\"+\"";
 
                   styles [
-                    "calc-button",
-                    "circle-radius",
-                    "numeric"
+                    "operator"
                   ]
                 }
 
                 layout {
                   column: 0;
                   row: 4;
+                }
+              }
+
+              Box {
+                spacing: 12;
+                homogeneous: true;
+
+                He.Button dzero {
+                  label: "00";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
+                  action-target: "\"00\"";
+                }
+
+                He.Button zero {
+                  label: "0";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
+                  action-target: "\"0\"";
+                }
+
+                He.Button dot {
+                  label: ".";
+                  is-tint: true;
+                  color: surface;
+                  action-name: "win.action-insert";
+                  action-target: "\".\"";
+                }
+
+                He.Button eq {
+                  icon: "equals-symbolic";
+                  color: primary;
+                  is-tint: true;
+                }
+
+                layout {
+                  column: 0;
+                  row: 5;
+                }
+              }
+            }
+          }
+        };
+      }
+
+      StackPage {
+        name: "converter";
+        title: "Converter";
+        icon-name: "view-list-symbolic";
+        child: 
+        Box {
+          orientation: vertical;
+
+          Box {
+            spacing: 12;
+            margin-top: 35;
+            margin-bottom: 9;
+
+            He.TextField from_entry {
+              margin-start: 18;
+              halign: start;
+              hexpand: true;
+              visibility: true;
+              is-outline: true;
+
+              styles [
+                "temp-tf",
+              ]
+            }
+
+            He.TextField to_entry {
+              margin-end: 18;
+              halign: end;
+              hexpand: true;
+              visibility: true;
+              is-outline: true;
+
+              styles [
+                "temp-tf",
+              ]
+            }
+          }
+
+          Box {
+            spacing: 12;
+            margin-start: 18;
+            margin-end: 18;
+            margin-bottom: 25;
+
+            DropDown temp_dropdown_from {
+              model: StringList {
+                strings ["°C", "°F", "K"]
+              };
+              hexpand: true;
+              styles [
+                "dropdown",
+              ]
+            }
+
+            DropDown mass_dropdown_from {
+              visible: false;
+              hexpand: true;
+              model: StringList {
+                strings ["g", "kg", "ton", "Oz", "lb"]
+              };
+              styles [
+                "dropdown",
+              ]
+            }
+
+            DropDown len_dropdown_from {
+              visible: false;
+              hexpand: true;
+              model: StringList {
+                strings ["cm", "m", "km", "in", "ft", "yd", "mi"]
+              };
+              styles [
+                "dropdown",
+              ]
+            }
+
+            DropDown vol_dropdown_from {
+              visible: false;
+              hexpand: true;
+              model: StringList {
+                strings ["mℓ", "ℓ", "Fl. Oz", "gal"]
+              };
+              styles [
+                "dropdown",
+              ]
+            }
+
+            DropDown time_dropdown_from {
+              visible: false;
+              hexpand: true;
+              model: StringList {
+                strings ["ms", "s", "min", "h", "day", "year"]
+              };
+              styles [
+                "dropdown",
+              ]
+            }
+
+            He.Button swap_button {
+              is-disclosure: true;
+              hexpand: true;
+              icon: "object-flip-horizontal-symbolic";
+            }
+
+            DropDown temp_dropdown_to {
+              hexpand: true;
+              model: StringList {
+                strings ["°C", "°F", "K"]
+              };
+              styles [
+                "dropdown",
+              ]
+            }
+
+            DropDown mass_dropdown_to {
+              visible: false;
+              hexpand: true;
+              model: StringList {
+                strings ["g", "kg", "ton", "Oz", "lb"]
+              };
+              styles [
+                "dropdown",
+              ]
+            }
+
+            DropDown len_dropdown_to {
+              visible: false;
+              hexpand: true;
+              model: StringList {
+                strings ["cm", "m", "km", "in", "ft", "yd", "mi"]
+              };
+              styles [
+                "dropdown",
+              ]
+            }
+
+            DropDown vol_dropdown_to {
+              visible: false;
+              hexpand: true;
+              model: StringList {
+                strings ["mℓ", "ℓ", "Fl. Oz", "gal"]
+              };
+              styles [
+                "dropdown",
+              ]
+            }
+
+            DropDown time_dropdown_to {
+              visible: false;
+              hexpand: true;
+              model: StringList {
+                strings ["ms", "s", "min", "h", "day", "year"]
+              };
+              styles [
+                "dropdown",
+              ]
+            }
+          }
+
+          Grid {
+            row-spacing: 20;
+            column-spacing: 12;
+            vexpand: true;
+            valign: end;
+            styles [
+                    "surface-container-lowest-bg-color",
+                    "x-large-radius",
+                    "control-padding"
+            ]
+
+            Grid {
+              row-spacing: 20;
+              column-spacing: 12;
+              column-homogeneous: true;
+              hexpand: true;
+
+              He.Button seven2 {
+                label: "7";
+                is-tint: true;
+                color: surface;
+                action-name: "win.action-insert-converter";
+                action-target: "\"7\"";
+
+                layout {
+                  column: 0;
+                  row: 0;
+                }
+              }
+
+              He.Button eight2 {
+                label: "8";
+                is-tint: true;
+                color: surface;
+                action-name: "win.action-insert-converter";
+                action-target: "\"8\"";
+                layout {
+                  column: 1;
+                  row: 0;
+                }
+              }
+
+              He.Button nine2 {
+                label: "9";
+                is-tint: true;
+                color: surface;
+                action-name: "win.action-insert-converter";
+                action-target: "\"9\"";
+                layout {
+                  column: 2;
+                  row: 0;
+                }
+              }
+
+              He.Button four2 {
+                label: "4";
+                is-tint: true;
+                color: surface;
+                action-name: "win.action-insert-converter";
+                action-target: "\"4\"";
+                layout {
+                  column: 0;
+                  row: 1;
+                }
+              }
+
+              He.Button five2 {
+                label: "5";
+                is-tint: true;
+                color: surface;
+                action-name: "win.action-insert-converter";
+                action-target: "\"5\"";
+                layout {
+                  column: 1;
+                  row: 1;
+                }
+              }
+
+              He.Button six2 {
+                label: "6";
+                is-tint: true;
+                color: surface;
+                action-name: "win.action-insert-converter";
+                action-target: "\"6\"";
+                layout {
+                  column: 2;
+                  row: 1;
+                }
+              }
+
+              He.Button one2 {
+                label: "1";
+                is-tint: true;
+                color: surface;
+                action-name: "win.action-insert-converter";
+                action-target: "\"1\"";
+                layout {
+                  column: 0;
+                  row: 2;
+                }
+              }
+
+              He.Button two2 {
+                label: "2";
+                is-tint: true;
+                color: surface;
+                action-name: "win.action-insert-converter";
+                action-target: "\"2\"";
+                layout {
+                  column: 1;
+                  row: 2;
+                }
+              }
+
+              He.Button three2 {
+                label: "3";
+                is-tint: true;
+                color: surface;
+                action-name: "win.action-insert-converter";
+                action-target: "\"3\"";
+                layout {
+                  column: 2;
+                  row: 2;
+                }
+              }
+
+              He.Button zero2 {
+                label: "0";
+                is-tint: true;
+                hexpand: true;
+                color: surface;
+                action-name: "win.action-insert-converter";
+                action-target: "\"0\"";
+                layout {
+                  column: 0;
+                  row: 3;
+                  column-span: 2;
+                }
+              }
+
+              He.Button dot2 {
+                label: ".";
+                is-tint: true;
+                color: surface;
+                action-name: "win.action-insert-converter";
+                action-target: "\".\"";
+                layout {
+                  column: 2;
+                  row: 3;
+                }
+              }
+
+              He.Button ac2 {
+                label: "AC";
+                is-tint: true;
+                color: tertiary;
+                action-name: "win.action-clear-converter";
+                layout {
+                  column: 3;
+                  row: 0;
+                  row-span: 2;
+                }
+              }
+
+              He.Button clr2 {
+                icon: "clears-symbolic";
+                is-tint: true;
+                action-name: "win.action-delete-converter";
+                layout {
+                  column: 3;
+                  row: 2;
+                }
+
+                styles [
+                  "operator"
+                ]
+              }
+
+              He.Button eq2 {
+                icon: "object-flip-horizontal-symbolic";
+                is-tint: true;
+                color: primary;
+                layout {
+                  column: 3;
+                  row: 3;
                 }
               }
             }

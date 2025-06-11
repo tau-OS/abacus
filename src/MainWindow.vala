@@ -22,9 +22,9 @@
 [GtkTemplate (ui = "/com/fyralabs/Abacus/window.ui")]
 public class Abacus.MainWindow : He.ApplicationWindow {
     [GtkChild]
-    private unowned He.OverlayButton eq;
+    private unowned He.Button eq;
     [GtkChild]
-    private unowned He.OverlayButton eq2;
+    private unowned He.Button eq2;
     [GtkChild]
     private unowned He.TextField entry;
     [GtkChild]
@@ -389,8 +389,8 @@ public class Abacus.MainWindow : He.ApplicationWindow {
         var replacement_text = "";
 
         switch (new_text) {
-        case ".":
-        case ",":
+        case "." :
+        case "," :
             replacement_text = Posix.nl_langinfo (Posix.NLItem.RADIXCHAR);
             break;
         case "/":

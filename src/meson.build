@@ -23,9 +23,9 @@ configure_file(
 )
 
 add_project_arguments(
-    '-include',
-    'config.h',
+    '-include', 'config.h',
     '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
+    '-w',
     language: 'c',
 )
 
