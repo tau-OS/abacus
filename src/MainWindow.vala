@@ -39,6 +39,8 @@ public class Abacus.MainWindow : He.ApplicationWindow {
     private unowned Gtk.ToggleButton converter;
     [GtkChild]
     private unowned Gtk.MenuButton menu;
+    [GtkChild]
+    private unowned Gtk.Overlay about_overlay;
 
     [GtkChild]
     private unowned He.Button swap_button;
@@ -362,6 +364,7 @@ public class Abacus.MainWindow : He.ApplicationWindow {
                                         He.AboutWindow.Licenses.GPLV3,
                                         He.Colors.PURPLE
         );
+        about_overlay.add_overlay (about);
         about.present ();
     }
 
